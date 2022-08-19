@@ -7,10 +7,10 @@ import scipy.io
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from FS.dssa import jfs   # change this to switch algorithm
+from feature_algo.dssa import jfs   # change this to switch algorithm
 import matplotlib.pyplot as plt
 
-mat = scipy.io.loadmat('../datasets/TOX-171.mat')
+mat = scipy.io.loadmat('Data/scikit_TOX-171.mat')
 feat=mat['X']
 label = mat['Y'][:, 0]
 

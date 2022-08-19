@@ -4,7 +4,7 @@ import numpy as np
 from numpy.random import rand
 from numpy.random import randint
 from numpy.random import choice
-from FS.functionHO import Fun
+from functionHO import Fun
 
 
 def init_position(lb, ub, N, dim):

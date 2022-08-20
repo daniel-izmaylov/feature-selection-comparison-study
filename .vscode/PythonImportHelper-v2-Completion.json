@@ -450,6 +450,14 @@
         "documentation": {}
     },
     {
+        "label": "RFE",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
         "label": "SelectKBest",
         "importPath": "sklearn.feature_selection",
         "description": "sklearn.feature_selection",
@@ -1003,6 +1011,14 @@
         "documentation": {}
     },
     {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
         "label": "PCA",
         "importPath": "sklearn.decomposition",
         "description": "sklearn.decomposition",
@@ -1177,29 +1193,11 @@
         "documentation": {}
     },
     {
-        "label": "FaissKNeighbors",
-        "kind": 6,
-        "importPath": "feature_algo.Genetic_FA",
-        "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "class FaissKNeighbors:\n    def __init__(self, k=5):\n        self.index = None\n        self.y = None\n        self.k = k\n    def fit(self, X, y):\n        self.index = faiss.IndexFlatL2(X.shape[1])\n        self.index.add(X.astype(np.float32))\n        self.y = y\n    def predict(self, X):",
-        "detail": "feature_algo.Genetic_FA",
-        "documentation": {}
-    },
-    {
         "label": "Genetic_FA",
         "kind": 6,
         "importPath": "feature_algo.Genetic_FA",
         "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "class Genetic_FA():\n    def __init__(self,X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid,n_features  ) -> None:\n        self.X_train_kbest_valid=X_train_kbest_valid\n        self.X_valid_kbest_valid=X_valid_kbest_valid\n        self.y_train_valid=y_train_valid\n        self.y_valid_valid=y_valid_valid\n        self.n_features= n_features\n        # self.feature_set= \n        #make set of number untill 500\n        self.feature_set=set(range(n_features))",
-        "detail": "feature_algo.Genetic_FA",
-        "documentation": {}
-    },
-    {
-        "label": "contingency_table",
-        "kind": 2,
-        "importPath": "feature_algo.Genetic_FA",
-        "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    def __init__(self,X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid,n_features  ) -> None:",
+        "peekOfCode": "class Genetic_FA():\n    # def __init__(self ) -> None:\n    def fit(self,X,y):\n        #split the data into train and validation\n        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n        self.n_features = min(500,X_train.shape[1] )\n        k_best = SelectKBest(f_classif, k=self.n_features).fit(X_train, y_train)\n        self.X_train_kbest_valid=k_best.transform(X_train)\n        self.X_valid_kbest_valid=k_best.transform(X_test)\n        self.y_train_valid=y_train",
         "detail": "feature_algo.Genetic_FA",
         "documentation": {}
     },
@@ -1208,7 +1206,16 @@
         "kind": 2,
         "importPath": "feature_algo.Genetic_FA",
         "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "def main():\n    n_features = 500\n    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)\n    r=ga.fit() \n    mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')\n    X=mat['X']\n    y = mat['Y'][:, 0] \n    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)\n    k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)\n    X_train_kbest = k_best.transform(X_train)",
+        "peekOfCode": "def main():\n    n_features = 500\n    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)\n    r=ga.fit() \n    # mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')\n    # X=mat['X']\n    # y = mat['Y'][:, 0] \n    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)\n    # k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)\n    # X_train_kbest = k_best.transform(X_train)",
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "contingency_table",
+        "kind": 2,
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    # def __init__(self ) -> None:",
         "detail": "feature_algo.Genetic_FA",
         "documentation": {}
     },
@@ -1379,7 +1386,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"f_classif\",\"SelectFdr\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"SVM\"]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1388,7 +1395,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"f_classif\",\"SelectFdr\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\ndef get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"SVM\"]\n# FS_ALGO_LIST= [\"f_classif\",\"SelectFdr\",\"MRMR\",\"SVM\"]\n# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\nK_OPTIONS= [50]\ndef get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1424,7 +1431,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    #TODO: need to add out features, SVM\n    start = timer()\n    if fs_algo==\"f_classif\":\n        return SelectKBest(k=100).fit(X_train,y_train),  timer()-start\n    elif fs_algo==\"SelectFdr\":\n        return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    # elif fs_algo==\"SVM\":",
+        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    #TODO: need to add out features, SVM\n    start = timer()\n    if fs_algo==\"f_classif\":\n        return SelectKBest(k=100).fit(X_train,y_train),  timer()-start\n    elif fs_algo==\"SelectFdr\":\n        return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"SVM\":",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1433,7 +1440,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=True\n    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)\n    res['fs_time']= fs_time\n    if type(best_feature.pvalues_)== np.ndarray:\n        empty_feature=False\n        best_feature=best_feature.scores_\n        best_feature_index=np.argsort(best_feature)[::-1]",
+        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=False\n    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)\n    res['fs_time']= fs_time\n    if fs_algo==\"SelectFdr\":\n        if best_feature.pvalues_==None:\n            empty_feature=True\n    if not empty_feature:",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1469,7 +1476,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def run_grid_search(db):\n    results={}\n    #TODO: freeze seed\n    if len(db)<50:\n        fold_func = LeavePOut(2)\n    # elif len(db)<=100:\n    #     fold_func = LeavePOut(1)\n    # elif len(db)<=100:\n        # fold_func = KFold(n_splits=10)\n    else:",
+        "peekOfCode": "def run_grid_search(db):\n    results={}\n    if len(db)<50:\n        fold_func = LeavePOut(2)\n    elif len(db)<=100:\n        fold_func = LeavePOut(1)\n    elif len(db)<=100:\n        fold_func = KFold(n_splits=10)\n    else:\n        fold_func = StratifiedKFold(n_splits=5)",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1753,11 +1760,20 @@
         "documentation": {}
     },
     {
+        "label": "freeze_seed",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\ndef main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=None)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
         "label": "main",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main(database_name):\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=None)\n    results=comparison.run_grid_search(db.values)\n    results[\"database\"]=database_name\n    #save results into pickle file\n    with open(\"results/\"+database_name+\".pkl\", \"wb\") as f:\n        pickle.dump(results, f)\nif __name__ == \"__main__\":\n    #TODO: ours feature selection \n    #TODO: binary classification",
+        "peekOfCode": "def main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=None)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1\n    #save results into pickle file\n    with open(\"results/\"+database_name+\".pkl\", \"wb\") as f:\n        pickle.dump(results, f)",
         "detail": "main",
         "documentation": {}
     }

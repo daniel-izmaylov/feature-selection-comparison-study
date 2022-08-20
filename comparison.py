@@ -48,12 +48,12 @@ from tqdm import tqdm
 from multiprocessing.pool import Pool as PoolParent
 from multiprocessing import Process, Pool
 import time
-    
+from sklearn.svm import SVC
 from functools import partial
 from sklearn.model_selection import LeavePOut
 import pandas as pd 
 import scipy.io
-
+from sklearn.feature_selection import RFE
 class NoDaemonProcess(Process):
     def _get_daemon(self):
         return False
@@ -64,8 +64,11 @@ class NoDaemonProcess(Process):
 class MyPool(PoolParent):
     Process = NoDaemonProcess
     
-FS_ALGO_LIST= ["f_classif","SelectFdr"]
-K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
+# FS_ALGO_LIST= ["MRMR","SVM"]
+FS_ALGO_LIST= ["SVM"]
+# FS_ALGO_LIST= ["f_classif","SelectFdr","MRMR","SVM"]
+# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
+K_OPTIONS= [50]
 
 def get_clf_dict():
     return {'LogisticRegression': LogisticRegression(),
@@ -107,15 +110,15 @@ def feature_selection(fs_algo,X_train, y_train):
 
     if fs_algo=="f_classif":
         return SelectKBest(k=100).fit(X_train,y_train),  timer()-start
+    
     elif fs_algo=="SelectFdr":
         return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start
     
     elif fs_algo=="MRMR":
         return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start
     
-    # elif fs_algo=="SVM":
-    #     clf= SVC().fit(X_train,y_train)
-    #     clf.
+    elif fs_algo=="SVM":
+        return RFE(SVC(kernel='linear')).fit(X_train, y_train),timer()-start
 
 from timeit import default_timer as timer
  
@@ -124,12 +127,16 @@ from timeit import default_timer as timer
 def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):
     res={}
     clf_list= get_clf_dict().items()
-    empty_feature=True
+    empty_feature=False
     best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)
     res['fs_time']= fs_time
     
-    if type(best_feature.pvalues_)== np.ndarray:
-        empty_feature=False
+    if fs_algo=="SelectFdr":
+        if best_feature.pvalues_==None:
+            empty_feature=True
+    
+    
+    if not empty_feature:
         best_feature=best_feature.scores_
         best_feature_index=np.argsort(best_feature)[::-1]
         
@@ -236,20 +243,18 @@ def turn_resDict_to_df(results):
 from  sklearn.model_selection import StratifiedKFold
 def run_grid_search(db):
     results={}
-    #TODO: freeze seed
-    
     if len(db)<50:
         fold_func = LeavePOut(2)
-    # elif len(db)<=100:
-    #     fold_func = LeavePOut(1)
-    # elif len(db)<=100:
-        # fold_func = KFold(n_splits=10)
+    elif len(db)<=100:
+        fold_func = LeavePOut(1)
+    elif len(db)<=100:
+        fold_func = KFold(n_splits=10)
     else:
         fold_func = StratifiedKFold(n_splits=5)
     X= db[:,:-1]
     y= db[:,-1]
     # result = next(kf.split(db), None)
-    fs_algo_list= FS_ALGO_LIST
+    # fs_algo_list= FS_ALGO_LIST
     #cross validation level
     t= zip(range(fold_func.get_n_splits(X,y)),fold_func.split(X,y))
     with MyPool(processes=fold_func.get_n_splits(X,y)) as p:                

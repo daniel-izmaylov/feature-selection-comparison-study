@@ -30,25 +30,64 @@ import faiss
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 
-class FaissKNeighbors:
-    def __init__(self, k=5):
-        self.index = None
-        self.y = None
-        self.k = k
+# class FaissKNeighbors:
+#     def __init__(self, k=5):
+#         self.index = None
+#         self.y = None
+#         self.k = k
 
-    def fit(self, X, y):
-        self.index = faiss.IndexFlatL2(X.shape[1])
-        self.index.add(X.astype(np.float32))
-        self.y = y
+#     def fit(self, X, y):
+#         self.index = faiss.IndexFlatL2(X.shape[1])
+#         self.index.add(X.astype(np.float32))
+#         self.y = y
 
-    def predict(self, X):
-        distances, indices = self.index.search(X.astype(np.float32), k=self.k)
-        votes = self.y[indices]
-        predictions = np.array([np.argmax(np.bincount(x)) for x in votes])
-
-
+#     def predict(self, X):
+#         distances, indices = self.index.search(X.astype(np.float32), k=self.k)
+#         votes = self.y[indices]
+#         predictions = np.array([np.argmax(np.bincount(x)) for x in votes])
 
 
+
+
+import multiprocessing
+
+    
+def main():
+    n_features = 500
+    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)
+    r=ga.fit() 
+    # mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')
+    # X=mat['X']
+    # y = mat['Y'][:, 0] 
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)
+    # k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)
+    # X_train_kbest = k_best.transform(X_train)
+    # X_test_kbest = k_best.transform(X_test)
+    
+
+    # X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid = train_test_split(X_train_kbest, y_train,  test_size=0.3, stratify=y_train, random_state=40)
+    # scalar = StandardScaler()
+    # X_train_kbest=scalar.fit_transform(X_train_kbest_valid)
+    # X_valid_kbest_valid=scalar.transform(X_valid_kbest_valid)
+    # # clf= RandomForestClassifier()
+    # clf= KNeighborsClassifier(n_neighbors=3)
+    # clf.fit(X_train_kbest,y_train_valid)
+    # y_pred= clf.predict(X_valid_kbest_valid)
+    # print(classification_report(y_valid_valid, y_pred))
+
+
+
+    # r=list(r)
+    #train random forest with selected features
+    # clf=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=0)
+
+    # clf.fit(X_train_kbest[:, r],y_train)
+
+    # y_pred= clf.predict(X_test_kbest[:, r])
+    # print(classification_report(y_test, y_pred))
+    
+    
+    
 
 def contingency_table(a,b,total):
     obs = np.array([[a,total-a ], [b,total-b]])
@@ -62,37 +101,56 @@ def contingency_table(a,b,total):
 
 
 class Genetic_FA():
-    def __init__(self,X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid,n_features  ) -> None:
-        self.X_train_kbest_valid=X_train_kbest_valid
-        self.X_valid_kbest_valid=X_valid_kbest_valid
-        self.y_train_valid=y_train_valid
-        self.y_valid_valid=y_valid_valid
-        self.n_features= n_features
-        # self.feature_set= 
-        #make set of number untill 500
-        self.feature_set=set(range(n_features))
-        
+    # def __init__(self ) -> None:
 
-            
+    
+    def fit(self,X,y):
+        #split the data into train and validation
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+        self.n_features = min(500,X_train.shape[1] )
+        
+        k_best = SelectKBest(f_classif, k=self.n_features).fit(X_train, y_train)
+        self.X_train_kbest_valid=k_best.transform(X_train)
+        self.X_valid_kbest_valid=k_best.transform(X_test)
+        self.y_train_valid=y_train
+        self.y_valid_valid=y_test
+        
+        self.feature_set=set(range(self.n_features))
+        
+        
+        lst=[]
+        r = process_map(self.genetic_algorithm, range(0, 40), max_workers=40)
+        #defult dict with set
+        counting_dict=defaultdict(set)
+        for i,lst in enumerate(r):
+            for number in lst:
+                counting_dict[number].add(i)
+
+        mean = statistics.mean(map(len,counting_dict.values()))
+        counting_dict= {k:len(v) for k,v in counting_dict.items() if len(v) > mean}
+        counting_dict=dict(sorted(counting_dict.items(), key=lambda item: item[1],reverse=True))
+        r_lst= list(counting_dict.keys())
+        set_final=set()
+        for i,key in enumerate(r_lst[:-1]):
+            keys_2=r_lst[i+1]
+            if contingency_table(counting_dict[key],counting_dict[keys_2],500):
+                set_final.add(key)
+                set_final.add(keys_2)
+                
+                
+        self.select_k=list(set_final)
+        return list(set_final)
+        
     
     def accuracy(self,y_true, y_pred):
         return np.sum(y_true == y_pred) / len(y_true)
         #use the KNN to compute the number of currectly classified samples/ total samples
         
     def accuracy_knn(self,selected_features):
-        # create pipeline
-        # pipeline = Pipeline([('scaler', StandardScaler()),
-        #                     ('knn', KNeighborsClassifier(n_neighbors=3))])
-        # # fit pipeline
-        
-        # pipeline = Pipeline([('knn', KNeighborsClassifier(n_neighbors=3))])
-        # pipeline = Pipeline([('knn', KNeighborsClassifier(n_neighbors=3))])
-        # pipeline= FaissKNeighbors(k=3)
         pipeline= KNeighborsClassifier(n_neighbors=3)
         pipeline.fit(self.X_train_kbest_valid[:, selected_features], self.y_train_valid)
-        # predict on test set
         y_pred = pipeline.predict(self.X_valid_kbest_valid[:, selected_features])
-        # return accuracy
         return self.accuracy(self.y_valid_valid, y_pred)
 
 
@@ -218,74 +276,5 @@ class Genetic_FA():
         # return best
 
     
-    def fit(self):
-        lst=[]
-        # for i in tqdm(range(10)):
-        #     lst.append(self.genetic_algorithm(i))
-
-        # with Pool(20) as pool:
-            # N = pool.map(, range(10))
-            # r = list(tqdm(pool.imap(self.genetic_algorithm, range(1000)), total=1000))
-        # r = process_map(self.genetic_algorithm, range(0, 10000), max_workers=20)
-        r = process_map(self.genetic_algorithm, range(0, 40), max_workers=40)
-        #defult dict with set
-        counting_dict=defaultdict(set)
-        for i,lst in enumerate(r):
-            for number in lst:
-                counting_dict[number].add(i)
-                
-        # r= Counter(x for xs in r for x in set(xs))
-        # return r
-        
-        mean = statistics.mean(map(len,counting_dict.values()))
-        counting_dict= {k:len(v) for k,v in counting_dict.items() if len(v) > mean}
-        counting_dict=dict(sorted(counting_dict.items(), key=lambda item: item[1],reverse=True))
-        r_lst= list(counting_dict.keys())
-        set_final=set()
-        for i,key in enumerate(r_lst[:-1]):
-            keys_2=r_lst[i+1]
-            if contingency_table(counting_dict[key],counting_dict[keys_2],500):
-                set_final.add(key)
-                set_final.add(keys_2)
-        self.select_k=list(set_final)
-        return list(set_final)
-
-import multiprocessing
-
-    
-def main():
-    n_features = 500
-    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)
-    r=ga.fit() 
-    mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')
-    X=mat['X']
-    y = mat['Y'][:, 0] 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)
-    k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)
-    X_train_kbest = k_best.transform(X_train)
-    X_test_kbest = k_best.transform(X_test)
-    
-
-    X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid = train_test_split(X_train_kbest, y_train,  test_size=0.3, stratify=y_train, random_state=40)
-    scalar = StandardScaler()
-    X_train_kbest=scalar.fit_transform(X_train_kbest_valid)
-    X_valid_kbest_valid=scalar.transform(X_valid_kbest_valid)
-    # clf= RandomForestClassifier()
-    clf= KNeighborsClassifier(n_neighbors=3)
-    clf.fit(X_train_kbest,y_train_valid)
-    y_pred= clf.predict(X_valid_kbest_valid)
-    print(classification_report(y_valid_valid, y_pred))
 
 
-
-    r=list(r)
-    #train random forest with selected features
-    clf=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=0)
-
-    clf.fit(X_train_kbest[:, r],y_train)
-
-    y_pred= clf.predict(X_test_kbest[:, r])
-    print(classification_report(y_test, y_pred))
-
-if __name__=="__main__":
-    r=main()

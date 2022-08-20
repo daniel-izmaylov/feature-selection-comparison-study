@@ -159,7 +159,7 @@ def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):
 from functools import partial
 
 
-def run_grid_seach(db,db_name):
+def run_grid_seach(db):
     results={}
     #TODO: freeze seed
     #TODO: add all the types of cross validation

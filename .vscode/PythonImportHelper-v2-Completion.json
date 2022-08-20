@@ -1315,7 +1315,7 @@
         "kind": 2,
         "importPath": "comparison copy",
         "description": "comparison copy",
-        "peekOfCode": "def run_grid_seach(db,db_name):\n    results={}\n    #TODO: freeze seed\n    #TODO: add all the types of cross validation\n    kf = KFold(n_splits=5)\n    # result = next(kf.split(db), None)\n    clf_list= get_clf_dict().items()\n    fs_algo_list= FS_ALGO_LIST\n    #cross validation level\n    for fold_n,(train, test) in enumerate(kf.split(db)):",
+        "peekOfCode": "def run_grid_seach(db):\n    results={}\n    #TODO: freeze seed\n    #TODO: add all the types of cross validation\n    kf = KFold(n_splits=5)\n    # result = next(kf.split(db), None)\n    clf_list= get_clf_dict().items()\n    fs_algo_list= FS_ALGO_LIST\n    #cross validation level\n    for fold_n,(train, test) in enumerate(kf.split(db)):",
         "detail": "comparison copy",
         "documentation": {}
     },

@@ -28,6 +28,7 @@ from tqdm.contrib.concurrent import process_map  # or thread_map
 from collections import defaultdict
 import faiss
 from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
 
 class FaissKNeighbors:
     def __init__(self, k=5):
@@ -46,35 +47,7 @@ class FaissKNeighbors:
         predictions = np.array([np.argmax(np.bincount(x)) for x in votes])
 
 
-# %%
-mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')
-X=mat['X']
-y = mat['Y'][:, 0] 
 
-
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)
-
-k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)
-X_train_kbest = k_best.transform(X_train)
-X_test_kbest = k_best.transform(X_test)
-
-
-# genrate validtion set from train set
-X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid = train_test_split(X_train_kbest, y_train,  test_size=0.3, stratify=y_train, random_state=40)
-scalar = StandardScaler()
-X_train_kbest=scalar.fit_transform(X_train_kbest_valid)
-X_valid_kbest_valid=scalar.transform(X_valid_kbest_valid)
-# clf= RandomForestClassifier()
-clf= KNeighborsClassifier(n_neighbors=3)
-clf.fit(X_train_kbest,y_train_valid)
-y_pred= clf.predict(X_valid_kbest_valid)
-print(classification_report(y_valid_valid, y_pred))
-
-
-
-
-# %%
 
 
 def contingency_table(a,b,total):
@@ -282,27 +255,37 @@ import multiprocessing
     
 def main():
     n_features = 500
-
     ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)
-    r=ga.fit()
-    return r
+    r=ga.fit() 
+    mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')
+    X=mat['X']
+    y = mat['Y'][:, 0] 
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)
+    k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)
+    X_train_kbest = k_best.transform(X_train)
+    X_test_kbest = k_best.transform(X_test)
+    
 
-# %%
+    X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid = train_test_split(X_train_kbest, y_train,  test_size=0.3, stratify=y_train, random_state=40)
+    scalar = StandardScaler()
+    X_train_kbest=scalar.fit_transform(X_train_kbest_valid)
+    X_valid_kbest_valid=scalar.transform(X_valid_kbest_valid)
+    # clf= RandomForestClassifier()
+    clf= KNeighborsClassifier(n_neighbors=3)
+    clf.fit(X_train_kbest,y_train_valid)
+    y_pred= clf.predict(X_valid_kbest_valid)
+    print(classification_report(y_valid_valid, y_pred))
+
+
+
+    r=list(r)
+    #train random forest with selected features
+    clf=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=0)
+
+    clf.fit(X_train_kbest[:, r],y_train)
+
+    y_pred= clf.predict(X_test_kbest[:, r])
+    print(classification_report(y_test, y_pred))
 
 if __name__=="__main__":
     r=main()
-
-# %%
-r=list(r)
-
-# %%
-#train random forest with selected features
-clf=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=0)
-
-
-# %%
-clf.fit(X_train_kbest[:, r],y_train)
-#classification report
-y_pred= clf.predict(X_test_kbest[:, r])
-print(classification_report(y_test, y_pred))
-# %%

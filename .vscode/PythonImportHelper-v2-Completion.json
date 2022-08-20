@@ -1,0 +1,1592 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "Pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
+        "label": "make_classification",
+        "importPath": "sklearn.datasets",
+        "description": "sklearn.datasets",
+        "isExtraImport": true,
+        "detail": "sklearn.datasets",
+        "documentation": {}
+    },
+    {
+        "label": "make_classification",
+        "importPath": "sklearn.datasets",
+        "description": "sklearn.datasets",
+        "isExtraImport": true,
+        "detail": "sklearn.datasets",
+        "documentation": {}
+    },
+    {
+        "label": "make_classification",
+        "importPath": "sklearn.datasets",
+        "description": "sklearn.datasets",
+        "isExtraImport": true,
+        "detail": "sklearn.datasets",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "label_binarize",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "PowerTransformer",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "LabelEncoder",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "KFold",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "mutual_info_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "f_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "mutual_info_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectFdr",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectFdr",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "chi2",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "f_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "mutual_info_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectFdr",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectFdr",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "chi2",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "f_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "VarianceThreshold",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "rand",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "rand",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "choice",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
+        "label": "scipy.io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy.io",
+        "description": "scipy.io",
+        "detail": "scipy.io",
+        "documentation": {}
+    },
+    {
+        "label": "arff",
+        "importPath": "scipy.io",
+        "description": "scipy.io",
+        "isExtraImport": true,
+        "detail": "scipy.io",
+        "documentation": {}
+    },
+    {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "itertools",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "itertools",
+        "description": "itertools",
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "repeat",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "multiprocessing",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "Pool",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "freeze_support",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "statistics",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "statistics",
+        "description": "statistics",
+        "detail": "statistics",
+        "documentation": {}
+    },
+    {
+        "label": "chi2_contingency",
+        "importPath": "scipy.stats",
+        "description": "scipy.stats",
+        "isExtraImport": true,
+        "detail": "scipy.stats",
+        "documentation": {}
+    },
+    {
+        "label": "process_map",
+        "importPath": "tqdm.contrib.concurrent",
+        "description": "tqdm.contrib.concurrent",
+        "isExtraImport": true,
+        "detail": "tqdm.contrib.concurrent",
+        "documentation": {}
+    },
+    {
+        "label": "faiss",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "faiss",
+        "description": "faiss",
+        "detail": "faiss",
+        "documentation": {}
+    },
+    {
+        "label": "classification_report",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "make_scorer",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "matthews_corrcoef",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "roc_auc_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "average_precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "make_scorer",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "matthews_corrcoef",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "roc_auc_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "average_precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "precision_recall_curve",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "make_scorer",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "matthews_corrcoef",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "roc_auc_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "average_precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "Fun",
+        "importPath": "functionHO",
+        "description": "functionHO",
+        "isExtraImport": true,
+        "detail": "functionHO",
+        "documentation": {}
+    },
+    {
+        "label": "scipy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy",
+        "description": "scipy",
+        "detail": "scipy",
+        "documentation": {}
+    },
+    {
+        "label": "jfs",
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "isExtraImport": true,
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "KEY_OPTIONS",
+        "importPath": "curses",
+        "description": "curses",
+        "isExtraImport": true,
+        "detail": "curses",
+        "documentation": {}
+    },
+    {
+        "label": "Pool",
+        "importPath": "multiprocessing.dummy",
+        "description": "multiprocessing.dummy",
+        "isExtraImport": true,
+        "detail": "multiprocessing.dummy",
+        "documentation": {}
+    },
+    {
+        "label": "BaseEstimator",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "TransformerMixin",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseEstimator",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "TransformerMixin",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseEstimator",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "TransformerMixin",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "PCA",
+        "importPath": "sklearn.decomposition",
+        "description": "sklearn.decomposition",
+        "isExtraImport": true,
+        "detail": "sklearn.decomposition",
+        "documentation": {}
+    },
+    {
+        "label": "PCA",
+        "importPath": "sklearn.decomposition",
+        "description": "sklearn.decomposition",
+        "isExtraImport": true,
+        "detail": "sklearn.decomposition",
+        "documentation": {}
+    },
+    {
+        "label": "GaussianNB",
+        "importPath": "sklearn.naive_bayes",
+        "description": "sklearn.naive_bayes",
+        "isExtraImport": true,
+        "detail": "sklearn.naive_bayes",
+        "documentation": {}
+    },
+    {
+        "label": "GaussianNB",
+        "importPath": "sklearn.naive_bayes",
+        "description": "sklearn.naive_bayes",
+        "isExtraImport": true,
+        "detail": "sklearn.naive_bayes",
+        "documentation": {}
+    },
+    {
+        "label": "mkdtemp",
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "isExtraImport": true,
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "mkdtemp",
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "isExtraImport": true,
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "Memory",
+        "importPath": "joblib",
+        "description": "joblib",
+        "isExtraImport": true,
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "rmtree",
+        "importPath": "shutil",
+        "description": "shutil",
+        "isExtraImport": true,
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "rmtree",
+        "importPath": "shutil",
+        "description": "shutil",
+        "isExtraImport": true,
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "ReliefF",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ReliefF",
+        "description": "ReliefF",
+        "detail": "ReliefF",
+        "documentation": {}
+    },
+    {
+        "label": "MRMR",
+        "importPath": "skfeature.function.information_theoretical_based",
+        "description": "skfeature.function.information_theoretical_based",
+        "isExtraImport": true,
+        "detail": "skfeature.function.information_theoretical_based",
+        "documentation": {}
+    },
+    {
+        "label": "MRMR",
+        "importPath": "skfeature.function.information_theoretical_based",
+        "description": "skfeature.function.information_theoretical_based",
+        "isExtraImport": true,
+        "detail": "skfeature.function.information_theoretical_based",
+        "documentation": {}
+    },
+    {
+        "label": "default_timer",
+        "importPath": "timeit",
+        "description": "timeit",
+        "isExtraImport": true,
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleImputer",
+        "importPath": "sklearn.impute",
+        "description": "sklearn.impute",
+        "isExtraImport": true,
+        "detail": "sklearn.impute",
+        "documentation": {}
+    },
+    {
+        "label": "FaissKNeighbors",
+        "kind": 6,
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "peekOfCode": "class FaissKNeighbors:\n    def __init__(self, k=5):\n        self.index = None\n        self.y = None\n        self.k = k\n    def fit(self, X, y):\n        self.index = faiss.IndexFlatL2(X.shape[1])\n        self.index.add(X.astype(np.float32))\n        self.y = y\n    def predict(self, X):",
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "Genetic_FA",
+        "kind": 6,
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "peekOfCode": "class Genetic_FA():\n    def __init__(self,X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid,n_features  ) -> None:\n        self.X_train_kbest_valid=X_train_kbest_valid\n        self.X_valid_kbest_valid=X_valid_kbest_valid\n        self.y_train_valid=y_train_valid\n        self.y_valid_valid=y_valid_valid\n        self.n_features= n_features\n        # self.feature_set= \n        #make set of number untill 500\n        self.feature_set=set(range(n_features))",
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "contingency_table",
+        "kind": 2,
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    def __init__(self,X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid,n_features  ) -> None:",
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "peekOfCode": "def main():\n    n_features = 500\n    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)\n    r=ga.fit() \n    mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')\n    X=mat['X']\n    y = mat['Y'][:, 0] \n    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)\n    k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)\n    X_train_kbest = k_best.transform(X_train)",
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "init_position",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def init_position(lb, ub, N, dim):\n    X = np.zeros([N, dim], dtype='float')\n    for i in range(N):\n        for d in range(dim):\n            X[i,d] = lb[0,d] + (ub[0,d] - lb[0,d]) * rand()        \n    return X\ndef binary_conversion(X, thres, N, dim):\n    Xbin = np.zeros([N, dim], dtype='int')\n    for i in range(N):\n        for d in range(dim):",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "binary_conversion",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def binary_conversion(X, thres, N, dim):\n    Xbin = np.zeros([N, dim], dtype='int')\n    for i in range(N):\n        for d in range(dim):\n            if X[i,d] > thres:\n                Xbin[i,d] = 1\n            else:\n                Xbin[i,d] = 0\n    return Xbin\ndef boundary(x, lb, ub):",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "boundary",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def boundary(x, lb, ub):\n    if x < lb:\n        x = lb\n    if x > ub:\n        x = ub\n    return x\ndef LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "LSA",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:\n        num_features = choice([2, 5])\n        feature_numbers = randint(0, Xbin.size, num_features)\n        for feature in feature_numbers:\n            if Xbin[feature] == 1:\n                Xbin[feature] = 0\n            else:",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "jfs",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def jfs(xtrain, ytrain, opts):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = opts['N']\n    max_iter = opts['T']\n    M = opts['M']\n    U_Value = rand()\n    # Dimension",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "mat",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "mat = scipy.io.loadmat('Data/scikit_TOX-171.mat')\nfeat=mat['X']\nlabel = mat['Y'][:, 0]\n# split data into train, validation and test\nxtrain, xtest, ytrain, ytest = train_test_split(feat, label, test_size=0.3, stratify=label)\nxtrain, xval, ytrain, yval = train_test_split(xtrain, ytrain, test_size=0.3, stratify=ytrain)\nfold = {'xt':xtrain, 'yt':ytrain, 'xv':xval, 'yv':yval}\nscaler = StandardScaler()\nxtrain = scaler.fit_transform(xtrain)\nxval = scaler.transform(xval)",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "label",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "label = mat['Y'][:, 0]\n# split data into train, validation and test\nxtrain, xtest, ytrain, ytest = train_test_split(feat, label, test_size=0.3, stratify=label)\nxtrain, xval, ytrain, yval = train_test_split(xtrain, ytrain, test_size=0.3, stratify=ytrain)\nfold = {'xt':xtrain, 'yt':ytrain, 'xv':xval, 'yv':yval}\nscaler = StandardScaler()\nxtrain = scaler.fit_transform(xtrain)\nxval = scaler.transform(xval)\nxtest = scaler.transform(xtest)\n# parameter",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "fold",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "fold = {'xt':xtrain, 'yt':ytrain, 'xv':xval, 'yv':yval}\nscaler = StandardScaler()\nxtrain = scaler.fit_transform(xtrain)\nxval = scaler.transform(xval)\nxtest = scaler.transform(xtest)\n# parameter\nk    = 5     # k-value in KNN\nN    = 10    # number of particles\nT    = 100   # maximum number of iterations\nM = random.uniform(0.9, 1.08)",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "scaler",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "scaler = StandardScaler()\nxtrain = scaler.fit_transform(xtrain)\nxval = scaler.transform(xval)\nxtest = scaler.transform(xtest)\n# parameter\nk    = 5     # k-value in KNN\nN    = 10    # number of particles\nT    = 100   # maximum number of iterations\nM = random.uniform(0.9, 1.08)\nopts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "xtrain",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "xtrain = scaler.fit_transform(xtrain)\nxval = scaler.transform(xval)\nxtest = scaler.transform(xtest)\n# parameter\nk    = 5     # k-value in KNN\nN    = 10    # number of particles\nT    = 100   # maximum number of iterations\nM = random.uniform(0.9, 1.08)\nopts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}\n# perform feature selection",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "xval",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "xval = scaler.transform(xval)\nxtest = scaler.transform(xtest)\n# parameter\nk    = 5     # k-value in KNN\nN    = 10    # number of particles\nT    = 100   # maximum number of iterations\nM = random.uniform(0.9, 1.08)\nopts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}\n# perform feature selection\nfmdl = jfs(xtrain, ytrain, opts)",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "xtest",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "xtest = scaler.transform(xtest)\n# parameter\nk    = 5     # k-value in KNN\nN    = 10    # number of particles\nT    = 100   # maximum number of iterations\nM = random.uniform(0.9, 1.08)\nopts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}\n# perform feature selection\nfmdl = jfs(xtrain, ytrain, opts)\nsf   = fmdl['sf']",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "M",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "M = random.uniform(0.9, 1.08)\nopts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}\n# perform feature selection\nfmdl = jfs(xtrain, ytrain, opts)\nsf   = fmdl['sf']\n# model with selected features\nnum_train = np.size(xtrain, 0)\nnum_valid = np.size(xtest, 0)\nx_train   = xtrain[:, sf]\ny_train   = ytrain.reshape(num_train)  # Solve bug",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "opts",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "opts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'M': M}\n# perform feature selection\nfmdl = jfs(xtrain, ytrain, opts)\nsf   = fmdl['sf']\n# model with selected features\nnum_train = np.size(xtrain, 0)\nnum_valid = np.size(xtest, 0)\nx_train   = xtrain[:, sf]\ny_train   = ytrain.reshape(num_train)  # Solve bug\nx_valid   = xtest[:, sf]",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "fmdl",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "fmdl = jfs(xtrain, ytrain, opts)\nsf   = fmdl['sf']\n# model with selected features\nnum_train = np.size(xtrain, 0)\nnum_valid = np.size(xtest, 0)\nx_train   = xtrain[:, sf]\ny_train   = ytrain.reshape(num_train)  # Solve bug\nx_valid   = xtest[:, sf]\ny_valid   = ytest.reshape(num_valid)  # Solve bug\nmdl       = KNeighborsClassifier(n_neighbors = k) ",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "num_train",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "num_train = np.size(xtrain, 0)\nnum_valid = np.size(xtest, 0)\nx_train   = xtrain[:, sf]\ny_train   = ytrain.reshape(num_train)  # Solve bug\nx_valid   = xtest[:, sf]\ny_valid   = ytest.reshape(num_valid)  # Solve bug\nmdl       = KNeighborsClassifier(n_neighbors = k) \nmdl.fit(x_train, y_train)\n# accuracy\ny_pred    = mdl.predict(x_valid)",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "num_valid",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "num_valid = np.size(xtest, 0)\nx_train   = xtrain[:, sf]\ny_train   = ytrain.reshape(num_train)  # Solve bug\nx_valid   = xtest[:, sf]\ny_valid   = ytest.reshape(num_valid)  # Solve bug\nmdl       = KNeighborsClassifier(n_neighbors = k) \nmdl.fit(x_train, y_train)\n# accuracy\ny_pred    = mdl.predict(x_valid)\nAcc       = np.sum(y_valid == y_pred)  / num_valid",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "num_feat",
+        "kind": 5,
+        "importPath": "Demo_PSO",
+        "description": "Demo_PSO",
+        "peekOfCode": "num_feat = fmdl['nf']\nprint(\"Feature Size:\", num_feat)\n# # plot convergence\n# curve   = fmdl['c']\n# curve   = curve.reshape(np.size(curve,1))\n# x       = np.arange(0, opts['T'], 1.0) + 1.0\n#\n# fig, ax = plt.subplots()\n# ax.plot(x, curve, 'o-')\n# ax.set_xlabel('Number of Iterations')",
+        "detail": "Demo_PSO",
+        "documentation": {}
+    },
+    {
+        "label": "get_clf_dict",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\ndef my_score(X, y):\n    return mutual_info_regression(X, y, random_state=0)\nfrom sklearn.preprocessing import label_binarize\ndef evalute(y_true,y_pred, y_prob):",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "my_score",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def my_score(X, y):\n    return mutual_info_regression(X, y, random_state=0)\nfrom sklearn.preprocessing import label_binarize\ndef evalute(y_true,y_pred, y_prob):\n    if y_prob.shape[1] ==1:\n        multi_class=False\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        auc= roc_auc_score(y_true, y_prob)\n    else:",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "evalute",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def evalute(y_true,y_pred, y_prob):\n    if y_prob.shape[1] ==1:\n        multi_class=False\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        auc= roc_auc_score(y_true, y_prob)\n    else:\n        np.argmax(y_prob, 0)\n        bin_y= label_binarize(y_pred, classes=range(y_prob.shape[1]))\n        pr_auc= average_precision_score(bin_y, y_prob, average=\"micro\")",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "feature_selection",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    #TODO: need to add out features, SVM\n    start = timer()\n    if fs_algo==\"f_classif\":\n        return SelectKBest(k=100).fit(X_train,y_train),  timer()-start\n    elif fs_algo==\"SelectFdr\":\n        return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    # elif fs_algo==\"SVM\":",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_per_FS_algo",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=True\n    #fix it to all the algorithms\n    # best_feature = SelectKBest(fs_algo, k=100).fit(X_train, y_train)\n    if fs_algo==\"SelectFdr\":\n        print(\"here\")\n    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)\n    res['fs_time']= fs_time",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "run_grid_seach",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def run_grid_seach(db,db_name):\n    results={}\n    #TODO: freeze seed\n    #TODO: add all the types of cross validation\n    kf = KFold(n_splits=5)\n    # result = next(kf.split(db), None)\n    clf_list= get_clf_dict().items()\n    fs_algo_list= FS_ALGO_LIST\n    #cross validation level\n    for fold_n,(train, test) in enumerate(kf.split(db)):",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "y = mat['Y'][:, 0]\n# attach y to the end of X\ndb= np.concatenate((X,y.reshape(-1,1)),axis=1)\nrun_grid_seach(db,'lymphoma')",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "make_param_grids",
+        "kind": 2,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "def make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}\n        for step_name, estimator_name in zip(steps.keys(), estimator_names):\n            for param, value in param_grids.get(estimator_name).items():\n                if param == 'object':\n                    current_grid[step_name]=[value]\n                else:\n                    current_grid[step_name+'__'+param]=value",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "y = mat['Y'][:, 0] \nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=40)\nfrom skfeature.function.information_theoretical_based import MRMR\n# %%\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.svm import SVC\nfrom sklearn.decomposition import PCA\nestimators = [('reduce_dim', PCA()), ('clf', SVC())]\npipe = Pipeline(estimators)",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "estimators",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "estimators = [('reduce_dim', PCA()), ('clf', SVC())]\npipe = Pipeline(estimators)\npipe\n# %%\nfrom sklearn.model_selection import GridSearchCV\n#import logistic_regression \nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.svm import SVC",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "pipe",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "pipe = Pipeline(estimators)\npipe\n# %%\nfrom sklearn.model_selection import GridSearchCV\n#import logistic_regression \nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.svm import SVC\n#import naive_bayes",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "cachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "location",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "location = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "memory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}\n        for step_name, estimator_name in zip(steps.keys(), estimator_names):",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "pipeline_steps",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "pipeline_steps = {'preprocessor':['pca', 'select'],\n                  'classifier':['svm', 'rf']}\n# fill parameters to be searched in this dict\nall_param_grids = {'svm':{'object':SVC(),\n                         }, \n                   'rf':{'object':RandomForestClassifier(),\n                        },\n                   'pca':{'object':PCA(),\n                          'n_components':[10,20]\n                         },",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "all_param_grids",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "all_param_grids = {'svm':{'object':SVC(),\n                         }, \n                   'rf':{'object':RandomForestClassifier(),\n                        },\n                   'pca':{'object':PCA(),\n                          'n_components':[10,20]\n                         },\n                   'select':{'object':SelectKBest(),\n                             'k':[5,10]\n                            }",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "pipeline_steps",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "pipeline_steps = {'preprocessor':[\"MRMR\",\"SelectFdr\"],\n                  'classifier':['naive_bayes',\"KNeighbors\"]}\nall_param_grids =   {\n                  \"SelectFdr\":{\"object\":SelectFdr(),\n                              \"score_func\":[f_classif],\n                              \"alpha\":[0.1]},\n                  'pca':{'object':PCA()},\n                  # 'MRMR':{'object':SelectKBest(MRMR.mrmr),\n                  'MRMR':{'object':SelectKBest(),\n                             'k':[5],",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "all_param_grids",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "all_param_grids =   {\n                  \"SelectFdr\":{\"object\":SelectFdr(),\n                              \"score_func\":[f_classif],\n                              \"alpha\":[0.1]},\n                  'pca':{'object':PCA()},\n                  # 'MRMR':{'object':SelectKBest(MRMR.mrmr),\n                  'MRMR':{'object':SelectKBest(),\n                             'k':[5],\n                            },\n                  \"naive_bayes\": {\"object\": GaussianNB()},",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "param_grids_list",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "param_grids_list = make_param_grids(pipeline_steps, all_param_grids)\ncachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "cachedir",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "cachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "location",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "location = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "memory",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "memory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "pipe",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "pipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "scoring",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "scoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])\nprint(\"f\")",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "grd",
+        "kind": 5,
+        "importPath": "comparison_old",
+        "description": "comparison_old",
+        "peekOfCode": "grd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])\nprint(\"f\")",
+        "detail": "comparison_old",
+        "documentation": {}
+    },
+    {
+        "label": "read_bioconductor",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def read_bioconductor(db):\n    df = pd.read_csv(db)\n    df = df.T\n    new_header = df.iloc[0]\n    df = df[1:]\n    X = df.iloc[:, 1:].to_numpy()\n    y = df.iloc[:, 0]\n    y = fillna(y)\n    return X, y\ndef read_scikit_mat(db):",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "read_scikit_mat",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def read_scikit_mat(db):\n    mat = scipy.io.loadmat(db)\n    X = mat['X']\n    y = mat['Y'][:, 0]\n    return X, y\ndef read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "read_ARFF",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)\n    return X, y\ndef read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "read_datamicroarray",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]\n    y = fillna(y)\n    return X, y\n    return\ndef set_categories(X):\n    for col in X:\n        if X[col].dtype.name == 'object':",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "set_categories",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def set_categories(X):\n    for col in X:\n        if X[col].dtype.name == 'object':\n            X[col] = X[col].astype(float)\n    return X\ndef imputation(X):\n    imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')\n    X = imp_mean.fit_transform(X)\n    return X\ndef variance_normalization(X):",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "imputation",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def imputation(X):\n    imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')\n    X = imp_mean.fit_transform(X)\n    return X\ndef variance_normalization(X):\n    selector = VarianceThreshold()\n    X = selector.fit_transform(X)\n    pt = PowerTransformer()\n    X = pt.fit_transform(X)\n    return X",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "variance_normalization",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def variance_normalization(X):\n    selector = VarianceThreshold()\n    X = selector.fit_transform(X)\n    pt = PowerTransformer()\n    X = pt.fit_transform(X)\n    return X\ndef fillna(y):\n    y = y.astype(str).astype(float)\n    y = y.fillna(y.max() + 1)\n    y = y.astype(int).values",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "fillna",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def fillna(y):\n    y = y.astype(str).astype(float)\n    y = y.fillna(y.max() + 1)\n    y = y.astype(int).values\n    return y\ndef read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)\n    # X = set_categories(X)",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "read_and_fix",
+        "kind": 2,
+        "importPath": "data_preprocessing",
+        "description": "data_preprocessing",
+        "peekOfCode": "def read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)\n    # X = set_categories(X)\n    # TODO: Make sure that the imputation works correctly (because categories might be wrong):\n    X = imputation(X)\n    X = variance_normalization(X)\n    return X, y\n#TODO: The y values are wrong for datamicroarray. 1) Fix it. 2) Make sure it's correct for other types",
+        "detail": "data_preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "error_rate",
+        "kind": 2,
+        "importPath": "functionHO",
+        "description": "functionHO",
+        "peekOfCode": "def error_rate(xtrain, ytrain, x, opts):\n    # parameters\n    k     = opts['k']\n    fold  = opts['fold']\n    xt    = fold['xt']\n    yt    = fold['yt']\n    xv    = fold['xv']\n    yv    = fold['yv']\n    # Number of instances\n    num_train = np.size(xt, 0)",
+        "detail": "functionHO",
+        "documentation": {}
+    },
+    {
+        "label": "Fun",
+        "kind": 2,
+        "importPath": "functionHO",
+        "description": "functionHO",
+        "peekOfCode": "def Fun(xtrain, ytrain, x, opts):\n    # Parameters\n    alpha    = 0.99\n    beta     = 1 - alpha\n    # Original feature size\n    max_feat = len(x)\n    # Number of selected features\n    num_feat = np.sum(x == 1)\n    # Solve if no feature selected\n    if num_feat == 0:",
+        "detail": "functionHO",
+        "documentation": {}
+    }
+]

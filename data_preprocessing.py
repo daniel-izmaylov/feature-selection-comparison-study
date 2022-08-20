@@ -89,7 +89,7 @@ def to_csv(X, y, name):
     df_array = np.column_stack((X,y))
     df = pd.DataFrame(df_array)
     df.to_csv('after_preprocess/' + suffix_name + ".csv", index=False, header=False)
-
+    
 path = 'Data/'
 all_files = []
 for file in os.listdir(path):

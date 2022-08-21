@@ -5,3 +5,8 @@
 /data
 .ipynb_checkpoints/
 /Data
+*.out
+*.pkl
+sbatch_cpu.example
+**.tmp
+*.pyc

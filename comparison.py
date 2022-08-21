@@ -15,10 +15,6 @@ from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import average_precision_score
-from sklearn.pipeline import Pipeline
-from sklearn.datasets import make_classification
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -28,9 +24,6 @@ from sklearn.svm import SVC
 from sklearn.decomposition import PCA
 from sklearn.model_selection import GridSearchCV
 #import logistic_regression 
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.feature_selection import SelectFdr
@@ -54,6 +47,21 @@ from sklearn.model_selection import LeavePOut
 import pandas as pd 
 import scipy.io
 from sklearn.feature_selection import RFE
+from feature_algo.Genetic_FA import Genetic_FA 
+from  feature_algo import dssa 
+from multiprocessing.pool import ThreadPool
+import pickle    
+from timeit import default_timer as timer
+from sklearn.preprocessing import label_binarize
+from sklearn.metrics import roc_curve, auc
+
+def get_clf_dict():
+    return {'LogisticRegression': LogisticRegression(),
+            # 'RandomForestClassifier': RandomForestClassifier(),
+            'KNeighborsClassifier': KNeighborsClassifier(),
+            'GaussianNB': GaussianNB(),
+            'SVC': SVC(probability=True)}
+ 
 class NoDaemonProcess(Process):
     def _get_daemon(self):
         return False
@@ -65,146 +73,185 @@ class MyPool(PoolParent):
     Process = NoDaemonProcess
     
 # FS_ALGO_LIST= ["MRMR","SVM"]
-FS_ALGO_LIST= ["SVM"]
-# FS_ALGO_LIST= ["f_classif","SelectFdr","MRMR","SVM"]
+FS_ALGO_LIST= ["f_classif","ReliefF"]
+# FS_ALGO_LIST= ["ReliefF"]
+# FS_ALGO_LIST= ["f_classif","MRMR","ReliefF"]
+# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF"]
+
 # K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
-K_OPTIONS= [50]
-
-def get_clf_dict():
-    return {'LogisticRegression': LogisticRegression(),
-            'RandomForestClassifier': RandomForestClassifier(),
-            'KNeighborsClassifier': KNeighborsClassifier(),
-            'GaussianNB': GaussianNB(),
-            'SVC': SVC(probability=True)}
+K_OPTIONS= [50,100]
 
 
 
-def my_score(X, y):
-    return mutual_info_regression(X, y, random_state=0)
+def run_grid_search(db):
+    X= db[:,:-1]
+    y= db[:,-1]
 
-from sklearn.preprocessing import label_binarize
+    with MyPool(processes=len(FS_ALGO_LIST)) as pool:
+        results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)
+                                  ,FS_ALGO_LIST)
 
-def evalute(y_true,y_pred, y_prob):
-    if y_prob.shape[1] ==2:
-        multi_class=False
+    results= {k: v for d in results for k, v in d.items()}
+                 
+    return results           
+
+
+
+def calculate_per_FS_algo(fs_algo,X=[],y=[]):
+    print("Calculating for {}".format(fs_algo))
+    res={}
+    clf_list= get_clf_dict().items()
+    empty_feature=False
+    best_feature,fs_time = feature_selection(fs_algo,X, y)
+    res['fs_time']= fs_time
+    
+    if fs_algo=="ReliefF":
+        if best_feature.pvalues_==None:
+            empty_feature=True
+            best_feature=[]
+            best_feature_index=[] 
+    if not empty_feature:
+        best_feature=best_feature.scores_
+        best_feature_index=np.argsort(best_feature)[::-1]
+    
+    with ThreadPool(processes=len(K_OPTIONS)) as pool:
+        temp= pool.map(partial(k_level,X=X,y=y,best_feature=best_feature, best_feature_index=best_feature_index)
+                                  ,K_OPTIONS)
+    res= {k: v for d in temp for k, v in d.items()}
+    res['fs_time']= fs_time
+
+    return res                
+
+
+    
+    #k level
+def k_level(k,X,y,best_feature=[], best_feature_index=[]):
+    print("k level:",k)
+    res={}
+    empty_feature= best_feature== []
+    clf_list= get_clf_dict().items()
+
+    if empty_feature:
+        res['chosen_features']= []
+        res['feature_rank']= []
+        for clf_name, clf in clf_list:
+            res[clf_name]={}
+            res[clf_name][0]={}
+            res[clf_name][0]["infrence_time"]=0
+            res[clf_name][0]["res"]= {'accuracy':0,"MCC":0,"AUC":0,"PR-AUC":0}
+        return {k:res}
+
+
+    k_best= best_feature_index[:k]
+    X_k_best= X[:,k_best]
+    res['chosen_features']= k_best
+    res['feature_rank']=best_feature[k_best]
+        
+    fold_func= get_fold(X_k_best)
+    #fold level 
+
+        # res[i]={}
+    for clf_name, clf in clf_list:
+        res[clf_name]={}
+        if len(X)<=100: #leave one out
+            y_test = []
+            y_prob=[]
+            y_pred=[]
+            start= timer()
+
+            for train, test in fold_func.split(X_k_best, y):
+                y_test.append(y[test])
+                predict_proba= clf.fit(X_k_best[train], y[train]).predict_proba(X_k_best[test])
+                y_prob.append(predict_proba[:,1])
+                y_pred.append(np.argmax(predict_proba, axis=1))
+            infrence_time= timer()-start
+            y_test = np.array(y_test)
+            y_prob = np.array(y_prob)
+            res[clf_name][0]=evalute(y_test,y_pred,y_prob,loo=True)
+            res[clf_name][0]["infrence_time"]= infrence_time/len(X)
+
+
+        else: 
+            for i, (train_index, test_index) in enumerate(fold_func.split(X_k_best, y)):
+                X_train, X_test = X_k_best[train_index], X_k_best[test_index]
+                y_train, y_test = y[train_index], y[test_index]
+
+                clf.fit(X_train, y_train)
+                y_pred= clf.predict(X_test)
+                start= timer()
+
+                y_prob= clf.predict_proba(X_test)
+                infrence_time= timer()-start
+
+                res[clf_name][i]=evalute(y_test,y_pred,y_prob)
+                res[clf_name][i]["infrence_time"]= infrence_time/len(X)
+
+    return {k:res}
+
+
+
+def evalute(y_true,y_pred, y_prob, loo=False):
+    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:
+        # if loo:
+
         y_prob=y_prob[:,0]
         pr_auc= average_precision_score(y_true, y_prob)
-        auc= roc_auc_score(y_true, y_prob)
+        # auc= roc_auc_score(y_true, y_prob)
+        fpr, tpr, thresholds = roc_curve(y_true,y_prob)
+        auc_Score = auc(fpr, tpr)
+
 
     else:
         np.argmax(y_prob, 0)
         bin_y= label_binarize(y_pred, classes=range(y_prob.shape[1]))
         pr_auc= average_precision_score(bin_y, y_prob, average="micro")
-        auc= roc_auc_score(bin_y, y_prob, average='micro')
+        auc_Score= roc_auc_score(bin_y, y_prob, average='micro')
         
     return  {'accuracy':accuracy_score(y_true,y_pred),
             "MCC":matthews_corrcoef(y_true,y_pred),
-            "AUC":auc,
+            "AUC":auc_Score,
             "PR-AUC":pr_auc
     }
 
 
 def feature_selection(fs_algo,X_train, y_train):
-    #TODO: need to add out features, SVM
     start = timer()
-
-    if fs_algo=="f_classif":
-        return SelectKBest(k=100).fit(X_train,y_train),  timer()-start
     
-    elif fs_algo=="SelectFdr":
-        return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start
+    if  fs_algo=="f_classif":
+        return SelectFdr(score_func=f_classif,alpha=0.1).fit(X_train,y_train),timer()-start
     
     elif fs_algo=="MRMR":
         return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start
+
+    elif fs_algo=="ReliefF":
+        return SelectKBest(score_func=ReliefF.ReliefF,k=100).fit(X_train, y_train),timer()-start
     
     elif fs_algo=="SVM":
-        return RFE(SVC(kernel='linear')).fit(X_train, y_train),timer()-start
+        return RFE(SVC(kernel='linear'),n_features_to_select=100,step=1).fit(X_train, y_train),timer()-start
+    
+    elif fs_algo=="Genetic":
+            fs_function= Genetic_FA()
+            return  SelectKBest(fs_function.fit,k=100).fit(X_train,y_train),timer()-start
 
-from timeit import default_timer as timer
- 
-    
-    
-def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):
-    res={}
-    clf_list= get_clf_dict().items()
-    empty_feature=False
-    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)
-    res['fs_time']= fs_time
-    
-    if fs_algo=="SelectFdr":
-        if best_feature.pvalues_==None:
-            empty_feature=True
-    
-    
-    if not empty_feature:
-        best_feature=best_feature.scores_
-        best_feature_index=np.argsort(best_feature)[::-1]
+
+    elif fs_algo=="dssa":
+            # fs_function= dssa()
+            return  SelectKBest(dssa.fit,k=100).fit(X_train,y_train),timer()-start
         
-        
-    #k level
-    for k in K_OPTIONS:
-        res[k]={}
+    
+    
+def get_fold(x):
+    if len(x)<50:
+        fold_func = LeavePOut(2)
+    elif len(x)<=100:
+        fold_func = LeavePOut(1)
+    elif len(x)<=1000:
+        fold_func = StratifiedKFold(n_splits=10)
+    else:
+        fold_func = StratifiedKFold(n_splits=5) 
+    return fold_func
 
 
-        if empty_feature:
-            res[k]['chosen_features']= []
-            res[k]['feature_rank']= []
-            
-        else:
-            k_best= best_feature_index[:k]
-            X_train_k= X_train[:,k_best]
-            X_test_k= X_test[:,k_best]
-            res[k]['chosen_features']= k_best
-            res[k]['feature_rank']=best_feature[k_best]
-            
-            
-        #classifier level
-        for clf_name,clf in clf_list:
-            res[k][clf_name]={}
-            if empty_feature:
-                res[k][clf_name]['proba_time']=0
-                res[k][clf_name]["res"]= {'accuracy':0,"MCC":0,"AUC":0,"PR-AUC":0}
-
-            else:    
-                clf.fit(X=X_train_k,y= y_train)
-                start = timer()
-                y_proba= clf.predict_proba(X_test_k)
-                res[k][clf_name]['proba_time']= timer()-start
-
-                y_pred= clf.predict(X_test_k)
-                res[k][clf_name]["res"]=evalute(y_test,y_pred,y_proba)
-                
-        
-    return {fs_algo:res}
-    
-    
-    
-def run_fold(indexes,db=[]):
-    # print("Running fold {}".format(indexes))
-    fold_n,(train,test)= indexes
-    results={}
-    # print("Fold: ", fold_n)
-    results[fold_n]={}
-    train = db[train]
-    test =  db[test]
-    
-    
-    X_train= train[:,:-1]
-    y_train= train[:,-1]
-    
-    X_test= test[:,:-1]
-    y_test= test[:,-1]
-    # feature selection level
-    # with Pool(processes=len(FS_ALGO_LIST)) as pool:
-    with Pool(processes=len(FS_ALGO_LIST)) as pool:
-        results[fold_n]= pool.map(partial(calculate_per_FS_algo,X_train=X_train,X_test=X_test, y_train=y_train,y_test=y_test)
-                                  ,FS_ALGO_LIST)
-        
-
-        
-    return results
-    
-import pickle        
 
 def clf_res(res,clf):
     # res= k_value_dict[k][clf]
@@ -241,37 +288,3 @@ def turn_resDict_to_df(results):
     return pd.concat(all_df, ignore_index=True)
 
 from  sklearn.model_selection import StratifiedKFold
-def run_grid_search(db):
-    results={}
-    if len(db)<50:
-        fold_func = LeavePOut(2)
-    elif len(db)<=100:
-        fold_func = LeavePOut(1)
-    elif len(db)<=100:
-        fold_func = KFold(n_splits=10)
-    else:
-        fold_func = StratifiedKFold(n_splits=5)
-    X= db[:,:-1]
-    y= db[:,-1]
-    # result = next(kf.split(db), None)
-    # fs_algo_list= FS_ALGO_LIST
-    #cross validation level
-    t= zip(range(fold_func.get_n_splits(X,y)),fold_func.split(X,y))
-    with MyPool(processes=fold_func.get_n_splits(X,y)) as p:                
-        results_lst= p.map(partial(run_fold,db=db),list(t))
-        
-    results = {}
-    for d in (results_lst): results.update(d)
-
-    results=turn_resDict_to_df(results)
-    return results
-
-
-
-# mat =scipy.io.loadmat("Data/scikit-Dataset/lymphoma.mat")
-# X=mat['X']
-# y = mat['Y'][:, 0]
-# # attach y to the end of X
-# db= np.concatenate((X,y.reshape(-1,1)),axis=1)
-# run_grid_seach(db)
-

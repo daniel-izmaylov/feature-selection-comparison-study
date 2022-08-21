@@ -19,9 +19,9 @@ def error_rate(xt, xv, yt, yv, x):
     num_train = np.size(xt, 0)
     num_valid = np.size(xv, 0)
     # Define selected features
-    xtrain = xt.iloc[:, x == 1]
+    xtrain = xt[:, x == 1]
     ytrain = yt.reshape(num_train)  # Solve bug
-    xvalid = xv.iloc[:, x == 1]
+    xvalid = xv[:, x == 1]
     yvalid = yv.reshape(num_valid)  # Solve bug
     # Training
     mdl = KNeighborsClassifier(n_neighbors=k)
@@ -180,8 +180,10 @@ def fit(x, y):
                 
             # Salp update
             elif i >= 1:
-
-                U_Value = M*(7.86 * U_Value - 23.31 * (U_Value ** 2) + 28.75 * (U_Value ** 3) - 13.302875 * (U_Value ** 4))
+                try:
+                    U_Value = M*(7.86 * U_Value - 23.31 * (U_Value ** 2) + 28.75 * (U_Value ** 3) - 13.302875 * (U_Value ** 4))
+                except OverflowError:
+                    U_Value = rand()
                 if U_Value < 0.5:
                     for d in range(dim):
                         # Salp update by following front salp (3.4)

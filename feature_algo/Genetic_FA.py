@@ -106,7 +106,7 @@ class Genetic_FA():
     
     def fit(self,X,y):
         #split the data into train and validation
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
         self.n_features = min(500,X_train.shape[1] )
         
@@ -120,7 +120,7 @@ class Genetic_FA():
         
         
         lst=[]
-        r = process_map(self.genetic_algorithm, range(0, 40), max_workers=40)
+        r = process_map(self.genetic_algorithm, range(0, 3), max_workers=20)
         #defult dict with set
         counting_dict=defaultdict(set)
         for i,lst in enumerate(r):
@@ -140,7 +140,10 @@ class Genetic_FA():
                 
                 
         self.select_k=list(set_final)
-        return list(set_final)
+        scores= np.zeros(X_train.shape[1])
+        for i in self.select_k:
+            scores[i]=1
+        return scores
         
     
     def accuracy(self,y_true, y_pred):
@@ -223,7 +226,8 @@ class Genetic_FA():
         while True:
             if gen_of_best>=20 and gen>=100 or old_best_score==1.0:
                 return old_best
-            
+            # if gen_of_best>=2 and gen>=5 or old_best_score==1.0:
+            #     return old_best      
             print("Generation:", gen)
             # evaluate all candidates in the population
             if gen>0 and gen%10==0:
@@ -276,5 +280,26 @@ class Genetic_FA():
         # return best
 
     
+from numpy import genfromtxt
 
+if __name__ == "__main__":
+    # mat =scipy.io.loadmat("Data/scikit_arcene.mat")
+    # mat =scipy.io.loadmat("Data/scikit_arcene.mat")
+    my_data = genfromtxt('Data/SPECTF (1).train', delimiter=',')
+    X=my_data[:,1:]
+    y=my_data[:,0]
+    # nump
+    # X=mat['X']
+    # y = mat['Y'][:, 0]
+    fs_function= Genetic_FA()
+    # fs_function.fit(X,y)
+    t= SelectKBest(fs_function.fit,k=2).fit(X,y)
+    print(t)
+    # attach y to the end of X
+    best_feature=t.scores_
+    best_feature_index=np.argsort(best_feature)[::-1]
+    
+    
+    # db= np.concatenate((X,y.reshape(-1,1)),axis=1)
+    # run_grid_seach(db)
 

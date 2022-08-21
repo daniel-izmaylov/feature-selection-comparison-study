@@ -18,11 +18,11 @@
         "documentation": {}
     },
     {
-        "label": "Pipeline",
-        "importPath": "sklearn.pipeline",
-        "description": "sklearn.pipeline",
+        "label": "genfromtxt",
+        "importPath": "numpy",
+        "description": "numpy",
         "isExtraImport": true,
-        "detail": "sklearn.pipeline",
+        "detail": "numpy",
         "documentation": {}
     },
     {
@@ -63,14 +63,6 @@
         "description": "sklearn.pipeline",
         "isExtraImport": true,
         "detail": "sklearn.pipeline",
-        "documentation": {}
-    },
-    {
-        "label": "make_classification",
-        "importPath": "sklearn.datasets",
-        "description": "sklearn.datasets",
-        "isExtraImport": true,
-        "detail": "sklearn.datasets",
         "documentation": {}
     },
     {
@@ -122,7 +114,7 @@
         "documentation": {}
     },
     {
-        "label": "StandardScaler",
+        "label": "label_binarize",
         "importPath": "sklearn.preprocessing",
         "description": "sklearn.preprocessing",
         "isExtraImport": true,
@@ -146,7 +138,23 @@
         "documentation": {}
     },
     {
+        "label": "StandardScaler",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
         "label": "GridSearchCV",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
         "importPath": "sklearn.model_selection",
         "description": "sklearn.model_selection",
         "isExtraImport": true,
@@ -210,15 +218,7 @@
         "documentation": {}
     },
     {
-        "label": "GridSearchCV",
-        "importPath": "sklearn.model_selection",
-        "description": "sklearn.model_selection",
-        "isExtraImport": true,
-        "detail": "sklearn.model_selection",
-        "documentation": {}
-    },
-    {
-        "label": "train_test_split",
+        "label": "KFold",
         "importPath": "sklearn.model_selection",
         "description": "sklearn.model_selection",
         "isExtraImport": true,
@@ -234,6 +234,22 @@
         "documentation": {}
     },
     {
+        "label": "LeavePOut",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "StratifiedKFold",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
         "label": "KNeighborsClassifier",
         "importPath": "sklearn.neighbors",
         "description": "sklearn.neighbors",
@@ -319,22 +335,6 @@
         "description": "sklearn.linear_model",
         "isExtraImport": true,
         "detail": "sklearn.linear_model",
-        "documentation": {}
-    },
-    {
-        "label": "LogisticRegression",
-        "importPath": "sklearn.linear_model",
-        "description": "sklearn.linear_model",
-        "isExtraImport": true,
-        "detail": "sklearn.linear_model",
-        "documentation": {}
-    },
-    {
-        "label": "RandomForestClassifier",
-        "importPath": "sklearn.ensemble",
-        "description": "sklearn.ensemble",
-        "isExtraImport": true,
-        "detail": "sklearn.ensemble",
         "documentation": {}
     },
     {
@@ -466,6 +466,14 @@
         "documentation": {}
     },
     {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
         "label": "mutual_info_classif",
         "importPath": "sklearn.feature_selection",
         "description": "sklearn.feature_selection",
@@ -499,6 +507,14 @@
     },
     {
         "label": "f_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "RFE",
         "importPath": "sklearn.feature_selection",
         "description": "sklearn.feature_selection",
         "isExtraImport": true,
@@ -588,6 +604,14 @@
         "documentation": {}
     },
     {
+        "label": "tqdm",
+        "importPath": "tqdm",
+        "description": "tqdm",
+        "isExtraImport": true,
+        "detail": "tqdm",
+        "documentation": {}
+    },
+    {
         "label": "scipy.io",
         "kind": 6,
         "isExtraImport": true,
@@ -602,6 +626,14 @@
         "description": "scipy.io",
         "isExtraImport": true,
         "detail": "scipy.io",
+        "documentation": {}
+    },
+    {
+        "label": "partial",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
         "documentation": {}
     },
     {
@@ -656,6 +688,22 @@
     },
     {
         "label": "freeze_support",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "Process",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "Pool",
         "importPath": "multiprocessing",
         "description": "multiprocessing",
         "isExtraImport": true,
@@ -865,11 +913,67 @@
         "documentation": {}
     },
     {
-        "label": "Fun",
-        "importPath": "functionHO",
-        "description": "functionHO",
+        "label": "make_scorer",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
         "isExtraImport": true,
-        "detail": "functionHO",
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "matthews_corrcoef",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "roc_auc_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "average_precision_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "precision_recall_curve",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "roc_curve",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "auc",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
         "documentation": {}
     },
     {
@@ -904,6 +1008,22 @@
         "description": "curses",
         "isExtraImport": true,
         "detail": "curses",
+        "documentation": {}
+    },
+    {
+        "label": "KEY_OPTIONS",
+        "importPath": "curses",
+        "description": "curses",
+        "isExtraImport": true,
+        "detail": "curses",
+        "documentation": {}
+    },
+    {
+        "label": "Pool",
+        "importPath": "multiprocessing.dummy",
+        "description": "multiprocessing.dummy",
+        "isExtraImport": true,
+        "detail": "multiprocessing.dummy",
         "documentation": {}
     },
     {
@@ -976,6 +1096,30 @@
         "description": "sklearn.base",
         "isExtraImport": true,
         "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseEstimator",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "TransformerMixin",
+        "importPath": "sklearn.base",
+        "description": "sklearn.base",
+        "isExtraImport": true,
+        "detail": "sklearn.base",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
         "documentation": {}
     },
     {
@@ -1132,12 +1276,52 @@
         "documentation": {}
     },
     {
+        "label": "Pool",
+        "importPath": "multiprocessing.pool",
+        "description": "multiprocessing.pool",
+        "isExtraImport": true,
+        "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
+        "label": "ThreadPool",
+        "importPath": "multiprocessing.pool",
+        "description": "multiprocessing.pool",
+        "isExtraImport": true,
+        "detail": "multiprocessing.pool",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "time",
         "description": "time",
         "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Genetic_FA",
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "isExtraImport": true,
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "Genetic_FA",
+        "importPath": "feature_algo.Genetic_FA",
+        "description": "feature_algo.Genetic_FA",
+        "isExtraImport": true,
+        "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "default_timer",
+        "importPath": "timeit",
+        "description": "timeit",
+        "isExtraImport": true,
+        "detail": "timeit",
         "documentation": {}
     },
     {
@@ -1158,6 +1342,14 @@
         "documentation": {}
     },
     {
+        "label": "dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
         "label": "SimpleImputer",
         "importPath": "sklearn.impute",
         "description": "sklearn.impute",
@@ -1171,6 +1363,22 @@
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "walk",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
         "detail": "os",
         "documentation": {}
     },
@@ -1193,11 +1401,27 @@
         "documentation": {}
     },
     {
+        "label": "isfile",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "join",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
         "label": "Genetic_FA",
         "kind": 6,
         "importPath": "feature_algo.Genetic_FA",
         "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "class Genetic_FA():\n    # def __init__(self ) -> None:\n    def fit(self,X,y):\n        #split the data into train and validation\n        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n        self.n_features = min(500,X_train.shape[1] )\n        k_best = SelectKBest(f_classif, k=self.n_features).fit(X_train, y_train)\n        self.X_train_kbest_valid=k_best.transform(X_train)\n        self.X_valid_kbest_valid=k_best.transform(X_test)\n        self.y_train_valid=y_train",
+        "peekOfCode": "class Genetic_FA():\n    # def __init__(self ) -> None:\n    def fit(self,X,y):\n        #split the data into train and validation\n        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)\n        self.n_features = min(500,X_train.shape[1] )\n        k_best = SelectKBest(f_classif, k=self.n_features).fit(X_train, y_train)\n        self.X_train_kbest_valid=k_best.transform(X_train)\n        self.X_valid_kbest_valid=k_best.transform(X_test)\n        self.y_train_valid=y_train",
         "detail": "feature_algo.Genetic_FA",
         "documentation": {}
     },
@@ -1217,6 +1441,24 @@
         "description": "feature_algo.Genetic_FA",
         "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    # def __init__(self ) -> None:",
         "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "error_rate",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def error_rate(xt, xv, yt, yv, x):\n    # parameters\n    k = 5\n    # Number of instances\n    num_train = np.size(xt, 0)\n    num_valid = np.size(xv, 0)\n    # Define selected features\n    xtrain = xt[:, x == 1]\n    ytrain = yt.reshape(num_train)  # Solve bug\n    xvalid = xv[:, x == 1]",
+        "detail": "feature_algo.dssa",
+        "documentation": {}
+    },
+    {
+        "label": "Fun",
+        "kind": 2,
+        "importPath": "feature_algo.dssa",
+        "description": "feature_algo.dssa",
+        "peekOfCode": "def Fun(xt, xv, yt, yv, x):\n    # Parameters\n    alpha = 0.99\n    beta = 1 - alpha\n    # Original feature size\n    max_feat = len(x)\n    # Number of selected features\n    num_feat = np.sum(x == 1)\n    # Solve if no feature selected\n    if num_feat == 0:",
+        "detail": "feature_algo.dssa",
         "documentation": {}
     },
     {
@@ -1242,7 +1484,7 @@
         "kind": 2,
         "importPath": "feature_algo.dssa",
         "description": "feature_algo.dssa",
-        "peekOfCode": "def boundary(x, lb, ub):\n    if x < lb:\n        x = lb\n    if x > ub:\n        x = ub\n    return x\ndef LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:",
+        "peekOfCode": "def boundary(x, lb, ub):\n    if x < lb:\n        x = lb\n    if x > ub:\n        x = ub\n    return x\ndef LSA(fitF, Xbin, xt, xv, yt, yv, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:",
         "detail": "feature_algo.dssa",
         "documentation": {}
     },
@@ -1251,16 +1493,16 @@
         "kind": 2,
         "importPath": "feature_algo.dssa",
         "description": "feature_algo.dssa",
-        "peekOfCode": "def LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:\n        num_features = choice([2, 5])\n        feature_numbers = randint(0, Xbin.size, num_features)\n        for feature in feature_numbers:\n            if Xbin[feature] == 1:\n                Xbin[feature] = 0\n            else:",
+        "peekOfCode": "def LSA(fitF, Xbin, xt, xv, yt, yv, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:\n        num_features = choice([2, 5])\n        feature_numbers = randint(0, Xbin.size, num_features)\n        for feature in feature_numbers:\n            if Xbin[feature] == 1:\n                Xbin[feature] = 0\n            else:",
         "detail": "feature_algo.dssa",
         "documentation": {}
     },
     {
-        "label": "jfs",
+        "label": "fit",
         "kind": 2,
         "importPath": "feature_algo.dssa",
         "description": "feature_algo.dssa",
-        "peekOfCode": "def jfs(xtrain, ytrain, opts):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = opts['N']\n    max_iter = opts['T']\n    M = opts['M']\n    U_Value = rand()\n    # Dimension",
+        "peekOfCode": "def fit(x, y):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = 10\n    max_iter = 100\n    M = random.uniform(0.9, 1.08)\n    U_Value = rand()\n    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3, stratify=y)",
         "detail": "feature_algo.dssa",
         "documentation": {}
     },
@@ -1384,9 +1626,99 @@
     {
         "label": "NoDaemonProcess",
         "kind": 6,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\n# FS_ALGO_LIST= [\"f_classif\"]",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "MyPool",
+        "kind": 6,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\n# FS_ALGO_LIST= [\"f_classif\"]\nFS_ALGO_LIST= [\"f_classif\",\"MRMR\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"SVM\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\n# K_OPTIONS= [50]\ndef get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "get_clf_dict",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\n# def my_score(X, y):\n#     return mutual_info_regression(X, y, random_state=0)\nfrom sklearn.preprocessing import label_binarize\ndef evalute(y_true,y_pred, y_prob):",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "evalute",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def evalute(y_true,y_pred, y_prob):\n    if y_prob.shape[1] ==2:\n        multi_class=False\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        auc= roc_auc_score(y_true, y_prob)\n    else:\n        np.argmax(y_prob, 0)\n        bin_y= label_binarize(y_pred, classes=range(y_prob.shape[1]))\n        pr_auc= average_precision_score(bin_y, y_prob, average=\"micro\")",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "feature_selection",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    #TODO: need to add out features, SVM\n    start = timer()\n    if  fs_algo==\"f_classif\":\n        return SelectFdr(score_func=f_classif,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"ReliefF\":\n        return SelectKBest(score_func=ReliefF.ReliefF,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"SVM\":",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_per_FS_algo",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=False\n    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)\n    res['fs_time']= fs_time\n    if fs_algo==\"SelectFdr\":\n        if best_feature.pvalues_==None:\n            empty_feature=True\n    if not empty_feature:",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "run_fold",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def run_fold(indexes,db=[]):\n    # print(\"Running fold {}\".format(indexes))\n    fold_n,(train,test)= indexes\n    results={}\n    print(\"Fold: \", fold_n)\n    results[fold_n]={}\n    train = db[train]\n    test =  db[test]\n    X_train= train[:,:-1]\n    y_train= train[:,-1]",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "clf_res",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def clf_res(res,clf):\n    # res= k_value_dict[k][clf]\n    clf_df= pd.DataFrame.from_dict(res)\n    clf_df.index = clf_df.index.set_names(['metric'])\n    clf_df.reset_index(inplace=True)\n    clf_df[\"Learning algorithm\"]= clf\n    return clf_df\ndef turn_resDict_to_df(results):\n    all_df=[]\n    for fold,fs_algo_lst in results.items():",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "turn_resDict_to_df",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def turn_resDict_to_df(results):\n    all_df=[]\n    for fold,fs_algo_lst in results.items():\n        for fs_algo in fs_algo_lst:\n            for fs_algo_name in fs_algo.keys():\n                k_value_dict= fs_algo[fs_algo_name]\n                k_df= pd.DataFrame()\n                fs_time= k_value_dict[\"fs_time\"]\n                for k in list(k_value_dict.keys())[1:]:\n                    res_df= pd.DataFrame()",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "run_grid_search",
+        "kind": 2,
+        "importPath": "comparison copy",
+        "description": "comparison copy",
+        "peekOfCode": "def run_grid_search(db):\n    results={}\n    if len(db)<50:\n        fold_func = LeavePOut(2)\n    elif len(db)<=100:\n        fold_func = LeavePOut(1)\n    elif len(db)<=1000:\n        fold_func = StratifiedKFold(n_splits=10)\n    else:\n        fold_func = StratifiedKFold(n_splits=5)",
+        "detail": "comparison copy",
+        "documentation": {}
+    },
+    {
+        "label": "NoDaemonProcess",
+        "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"SVM\"]",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\",\"ReliefF\"]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1395,7 +1727,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"SVM\"]\n# FS_ALGO_LIST= [\"f_classif\",\"SelectFdr\",\"MRMR\",\"SVM\"]\n# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\nK_OPTIONS= [50]\ndef get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\n# FS_ALGO_LIST= [\"f_classif\",\"MRMR\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\"]\n# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\nK_OPTIONS= [50,100]\ndef run_grid_search(db):",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1404,34 +1736,16 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\ndef my_score(X, y):\n    return mutual_info_regression(X, y, random_state=0)\nfrom sklearn.preprocessing import label_binarize\ndef evalute(y_true,y_pred, y_prob):",
+        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            # 'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\nclass NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):",
         "detail": "comparison",
         "documentation": {}
     },
     {
-        "label": "my_score",
+        "label": "run_grid_search",
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def my_score(X, y):\n    return mutual_info_regression(X, y, random_state=0)\nfrom sklearn.preprocessing import label_binarize\ndef evalute(y_true,y_pred, y_prob):\n    if y_prob.shape[1] ==2:\n        multi_class=False\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        auc= roc_auc_score(y_true, y_prob)\n    else:",
-        "detail": "comparison",
-        "documentation": {}
-    },
-    {
-        "label": "evalute",
-        "kind": 2,
-        "importPath": "comparison",
-        "description": "comparison",
-        "peekOfCode": "def evalute(y_true,y_pred, y_prob):\n    if y_prob.shape[1] ==2:\n        multi_class=False\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        auc= roc_auc_score(y_true, y_prob)\n    else:\n        np.argmax(y_prob, 0)\n        bin_y= label_binarize(y_pred, classes=range(y_prob.shape[1]))\n        pr_auc= average_precision_score(bin_y, y_prob, average=\"micro\")",
-        "detail": "comparison",
-        "documentation": {}
-    },
-    {
-        "label": "feature_selection",
-        "kind": 2,
-        "importPath": "comparison",
-        "description": "comparison",
-        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    #TODO: need to add out features, SVM\n    start = timer()\n    if fs_algo==\"f_classif\":\n        return SelectKBest(k=100).fit(X_train,y_train),  timer()-start\n    elif fs_algo==\"SelectFdr\":\n        return SelectFdr(score_func=ReliefF.ReliefF,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"SVM\":",
+        "peekOfCode": "def run_grid_search(db):\n    X= db[:,:-1]\n    y= db[:,-1]\n    with MyPool(processes=len(FS_ALGO_LIST)) as pool:\n        results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)\n                                  ,FS_ALGO_LIST)\n    results= {k: v for d in results for k, v in d.items()}\n    return results           \ndef calculate_per_FS_algo(fs_algo,X=[],y=[]):\n    print(\"Calculating for {}\".format(fs_algo))",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1440,16 +1754,43 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X_train=[],X_test=[], y_train=[],y_test=[]):\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=False\n    best_feature,fs_time = feature_selection(fs_algo,X_train, y_train)\n    res['fs_time']= fs_time\n    if fs_algo==\"SelectFdr\":\n        if best_feature.pvalues_==None:\n            empty_feature=True\n    if not empty_feature:",
+        "peekOfCode": "def calculate_per_FS_algo(fs_algo,X=[],y=[]):\n    print(\"Calculating for {}\".format(fs_algo))\n    res={}\n    clf_list= get_clf_dict().items()\n    empty_feature=False\n    best_feature,fs_time = feature_selection(fs_algo,X, y)\n    res['fs_time']= fs_time\n    if fs_algo==\"ReliefF\":\n        if best_feature.pvalues_==None:\n            empty_feature=True",
         "detail": "comparison",
         "documentation": {}
     },
     {
-        "label": "run_fold",
+        "label": "k_level",
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def run_fold(indexes,db=[]):\n    # print(\"Running fold {}\".format(indexes))\n    fold_n,(train,test)= indexes\n    results={}\n    # print(\"Fold: \", fold_n)\n    results[fold_n]={}\n    train = db[train]\n    test =  db[test]\n    X_train= train[:,:-1]\n    y_train= train[:,-1]",
+        "peekOfCode": "def k_level(k,X,y,best_feature=[], best_feature_index=[]):\n    print(\"k level:\",k)\n    res={}\n    empty_feature= best_feature== []\n    clf_list= get_clf_dict().items()\n    if empty_feature:\n        res['chosen_features']= []\n        res['feature_rank']= []\n        for clf_name, clf in clf_list:\n            res[clf_name]={}",
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "evalute",
+        "kind": 2,
+        "importPath": "comparison",
+        "description": "comparison",
+        "peekOfCode": "def evalute(y_true,y_pred, y_prob, loo=False):\n    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:\n        # if loo:\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        # auc= roc_auc_score(y_true, y_prob)\n        fpr, tpr, thresholds = roc_curve(y_true,y_prob)\n        auc_Score = auc(fpr, tpr)\n    else:\n        np.argmax(y_prob, 0)",
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "feature_selection",
+        "kind": 2,
+        "importPath": "comparison",
+        "description": "comparison",
+        "peekOfCode": "def feature_selection(fs_algo,X_train, y_train):\n    start = timer()\n    if  fs_algo==\"f_classif\":\n        return SelectFdr(score_func=f_classif,alpha=0.1).fit(X_train,y_train),timer()-start\n    elif fs_algo==\"MRMR\":\n        return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"ReliefF\":\n        return SelectKBest(score_func=ReliefF.ReliefF,k=100).fit(X_train, y_train),timer()-start\n    elif fs_algo==\"SVM\":\n        return RFE(SVC(kernel='linear'),n_features_to_select=100,step=1).fit(X_train, y_train),timer()-start",
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "get_fold",
+        "kind": 2,
+        "importPath": "comparison",
+        "description": "comparison",
+        "peekOfCode": "def get_fold(x):\n    if len(x)<50:\n        fold_func = LeavePOut(2)\n    elif len(x)<=100:\n        fold_func = LeavePOut(1)\n    elif len(x)<=1000:\n        fold_func = StratifiedKFold(n_splits=10)\n    else:\n        fold_func = StratifiedKFold(n_splits=5) \n    return fold_func",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1472,182 +1813,11 @@
         "documentation": {}
     },
     {
-        "label": "run_grid_search",
-        "kind": 2,
-        "importPath": "comparison",
-        "description": "comparison",
-        "peekOfCode": "def run_grid_search(db):\n    results={}\n    if len(db)<50:\n        fold_func = LeavePOut(2)\n    elif len(db)<=100:\n        fold_func = LeavePOut(1)\n    elif len(db)<=100:\n        fold_func = KFold(n_splits=10)\n    else:\n        fold_func = StratifiedKFold(n_splits=5)",
-        "detail": "comparison",
-        "documentation": {}
-    },
-    {
-        "label": "make_param_grids",
-        "kind": 2,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "def make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}\n        for step_name, estimator_name in zip(steps.keys(), estimator_names):\n            for param, value in param_grids.get(estimator_name).items():\n                if param == 'object':\n                    current_grid[step_name]=[value]\n                else:\n                    current_grid[step_name+'__'+param]=value",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "y",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "y = mat['Y'][:, 0] \nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=40)\nfrom skfeature.function.information_theoretical_based import MRMR\n# %%\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.svm import SVC\nfrom sklearn.decomposition import PCA\nestimators = [('reduce_dim', PCA()), ('clf', SVC())]\npipe = Pipeline(estimators)",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "estimators",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "estimators = [('reduce_dim', PCA()), ('clf', SVC())]\npipe = Pipeline(estimators)\npipe\n# %%\nfrom sklearn.model_selection import GridSearchCV\n#import logistic_regression \nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.svm import SVC",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "pipe",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "pipe = Pipeline(estimators)\npipe\n# %%\nfrom sklearn.model_selection import GridSearchCV\n#import logistic_regression \nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.svm import SVC\n#import naive_bayes",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "cachedir",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "cachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "location",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "location = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "memory",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "memory = Memory(location=location, verbose=False)\n# pipe = Pipeline([('selector', SelectKBest(mutual_info_classif, k=5)),\n#                  ('classifier', LogisticRegression())],memory=memory)\n# %%\nimport itertools\ndef make_param_grids(steps, param_grids):\n    final_params=[]\n    for estimator_names in itertools.product(*steps.values()):\n        current_grid = {}\n        for step_name, estimator_name in zip(steps.keys(), estimator_names):",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "pipeline_steps",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "pipeline_steps = {'preprocessor':['pca', 'select'],\n                  'classifier':['svm', 'rf']}\n# fill parameters to be searched in this dict\nall_param_grids = {'svm':{'object':SVC(),\n                         }, \n                   'rf':{'object':RandomForestClassifier(),\n                        },\n                   'pca':{'object':PCA(),\n                          'n_components':[10,20]\n                         },",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "all_param_grids",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "all_param_grids = {'svm':{'object':SVC(),\n                         }, \n                   'rf':{'object':RandomForestClassifier(),\n                        },\n                   'pca':{'object':PCA(),\n                          'n_components':[10,20]\n                         },\n                   'select':{'object':SelectKBest(),\n                             'k':[5,10]\n                            }",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "pipeline_steps",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "pipeline_steps = {'preprocessor':[\"MRMR\",\"SelectFdr\"],\n                  'classifier':['naive_bayes',\"KNeighbors\"]}\nall_param_grids =   {\n                  \"SelectFdr\":{\"object\":SelectFdr(),\n                              \"score_func\":[f_classif],\n                              \"alpha\":[0.1]},\n                  'pca':{'object':PCA()},\n                  # 'MRMR':{'object':SelectKBest(MRMR.mrmr),\n                  'MRMR':{'object':SelectKBest(),\n                             'k':[5],",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "all_param_grids",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "all_param_grids =   {\n                  \"SelectFdr\":{\"object\":SelectFdr(),\n                              \"score_func\":[f_classif],\n                              \"alpha\":[0.1]},\n                  'pca':{'object':PCA()},\n                  # 'MRMR':{'object':SelectKBest(MRMR.mrmr),\n                  'MRMR':{'object':SelectKBest(),\n                             'k':[5],\n                            },\n                  \"naive_bayes\": {\"object\": GaussianNB()},",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "param_grids_list",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "param_grids_list = make_param_grids(pipeline_steps, all_param_grids)\ncachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "cachedir",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "cachedir = mkdtemp()\nlocation = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "location",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "location = \"cachedir\"\nmemory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "memory",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "memory = Memory(location=location, verbose=False)\npipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "pipe",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "pipe = Pipeline(steps=[('preprocessor',PCA()), ('classifier', SVC())],memory=memory)  \nscoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "scoring",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "scoring = {\n      # \"roc_auc\": make_scorer(roc_auc_score),\n            \"accuracy\": make_scorer(accuracy_score),\n            # \"matthews_corrcoef\": make_scorer(matthews_corrcoef),\n            # \"PR-AUC\": make_scorer(average_precision_score),\n            }\nprint(param_grids_list)\ngrd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])\nprint(\"f\")",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
-        "label": "grd",
-        "kind": 5,
-        "importPath": "comparison_old",
-        "description": "comparison_old",
-        "peekOfCode": "grd = GridSearchCV(pipe, param_grid = param_grids_list,verbose=False, scoring=scoring,refit=False)\ngrd.fit(X, y,callback=[on_step])\nprint(\"f\")",
-        "detail": "comparison_old",
-        "documentation": {}
-    },
-    {
         "label": "imputation",
         "kind": 6,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "class imputation(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')\n        X = imp_mean.fit_transform(X)\n        self.X = X\n        return self\n    def transform(self, X):\n        return self.X\n    def fit_transform(self, X, y=None):\n        self.fit(X)",
+        "peekOfCode": "class imputation(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        self.X = X\n        imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')\n        X = imp_mean.fit_transform(X)\n        return X\n    def transform(self, X):\n        return self.X\n    def fit_transform(self, X, y=None):\n        X = self.fit(X)",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1656,7 +1826,7 @@
         "kind": 6,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "class variance(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        selector = VarianceThreshold()\n        X = selector.fit_transform(X)\n        pt = PowerTransformer()\n        self.X = pt.fit_transform(X)\n        return self\n    def transform(self, X):\n        return self.X\n    def fit_transform(self, X, y=None):",
+        "peekOfCode": "class variance(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        scaler = StandardScaler()\n        X = scaler.fit_transform(X)\n        #selector = VarianceThreshold()\n        #X = selector.fit_transform(X)\n        pt = PowerTransformer()\n        X = pt.fit_transform(X)\n        return X\n    def transform(self, X):",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1665,7 +1835,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def fillna(X, y):\n    y = y.astype(str).astype(float)\n    y = y.fillna(y.max() + 1)\n    y = y.astype(int).values\n    return X, y\ndef read_bioconductor(db):\n    df = pd.read_csv(db)\n    df = df.T\n    new_header = df.iloc[0]\n    df = df[1:]",
+        "peekOfCode": "def fillna(X, y):\n    y = y.astype(str).astype(float)\n    y = y.fillna(y.max() + 1)\n    y = y.astype(int).values\n    return X, y\ndef read_bioconductor(db):\n    df = pd.read_csv(db, header=0)\n    df = df.T\n    cols = df.iloc[0, :]\n    cols = cols[1:]",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1674,7 +1844,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_bioconductor(db):\n    df = pd.read_csv(db)\n    df = df.T\n    new_header = df.iloc[0]\n    df = df[1:]\n    X = df.iloc[:, 1:].to_numpy()\n    y = df.iloc[:, 0]\n    X, y = fillna(X, y)\n    return X, y\ndef read_scikit_mat(db):",
+        "peekOfCode": "def read_bioconductor(db):\n    df = pd.read_csv(db, header=0)\n    df = df.T\n    cols = df.iloc[0, :]\n    cols = cols[1:]\n    df = df[1:]\n    X = df.iloc[:, 1:]\n    y = df.iloc[:, 0]\n    X, y = fillna(X, y)\n    X.columns = cols",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1683,7 +1853,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_scikit_mat(db):\n    mat = scipy.io.loadmat(db)\n    X = mat['X']\n    y = mat['Y'][:, 0]\n    return X, y\ndef read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]",
+        "peekOfCode": "def read_scikit_mat(db):\n    mat = scipy.io.loadmat(db)\n    X = mat['X']\n    X = pd.DataFrame(X)\n    y = mat['Y'][:, 0]\n    return X, y\ndef read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1]",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1692,7 +1862,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)\n    return X, y\ndef read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)",
+        "peekOfCode": "def read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)\n    return X, y\ndef read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1701,7 +1871,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)\n    X = df.iloc[:, :-1].to_numpy()\n    y = df.iloc[:, -1]\n    X, y = fillna(X, y)\n    return X, y\ndef read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)",
+        "peekOfCode": "def read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    X, y = fillna(X, y)\n    return X, y\ndef read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1710,7 +1880,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)\n    return X, y\ndef to_csv(X, y, name):\n    suffix_name = name.split(\"/\")[1].split(\".\")[0]\n    df_array = np.column_stack((X,y))\n    df = pd.DataFrame(df_array)\n    df.to_csv('after_preprocess/' + suffix_name + \".csv\", index=False, header=False)",
+        "peekOfCode": "def read_and_fix(db):\n    function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}\n    file_type = db.split(\"/\")[1].split(\"_\")[0]\n    X, y = function_name[file_type](db)\n    return X, y\ndef to_csv(X, y, name, cols):\n    suffix_name = name.split(\"/\")[1].split(\".\")[0]\n    df_array = np.column_stack((X,y))\n    df = pd.DataFrame(df_array)\n    cols = np.append(cols, \"label\")",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1719,7 +1889,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def to_csv(X, y, name):\n    suffix_name = name.split(\"/\")[1].split(\".\")[0]\n    df_array = np.column_stack((X,y))\n    df = pd.DataFrame(df_array)\n    df.to_csv('after_preprocess/' + suffix_name + \".csv\", index=False, header=False)\npath = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))",
+        "peekOfCode": "def to_csv(X, y, name, cols):\n    suffix_name = name.split(\"/\")[1].split(\".\")[0]\n    df_array = np.column_stack((X,y))\n    df = pd.DataFrame(df_array)\n    cols = np.append(cols, \"label\")\n    df.to_csv('after_preprocess/' + suffix_name + \".csv\", index=False, header=cols)\npath = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1728,7 +1898,7 @@
         "kind": 5,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "path = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    pipe = Pipeline(steps=[('imputation', imputation()), ('normalization', variance())])\n    pipe.fit(X, y)\n    X = pipe.transform(X)",
+        "peekOfCode": "path = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),\n                           ('power_transformer', PowerTransformer())])",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1737,7 +1907,7 @@
         "kind": 5,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "all_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    pipe = Pipeline(steps=[('imputation', imputation()), ('normalization', variance())])\n    pipe.fit(X, y)\n    X = pipe.transform(X)\n    to_csv(X, y, name)",
+        "peekOfCode": "all_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),\n                           ('power_transformer', PowerTransformer())])\n    X = pipe.fit_transform(X, y)",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1764,7 +1934,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\ndef main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=None)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1",
+        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\ndef main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1",
         "detail": "main",
         "documentation": {}
     },
@@ -1773,7 +1943,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=None)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1\n    #save results into pickle file\n    with open(\"results/\"+database_name+\".pkl\", \"wb\") as f:\n        pickle.dump(results, f)",
+        "peekOfCode": "def main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1\n    #save results into pickle file\n    with open(\"results/\"+database_name+\".pkl\", \"wb\") as f:\n        pickle.dump(results, f)",
         "detail": "main",
         "documentation": {}
     }

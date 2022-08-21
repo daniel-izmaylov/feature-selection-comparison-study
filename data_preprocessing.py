@@ -14,15 +14,14 @@ class imputation(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
         X = imp_mean.fit_transform(X)
-        self.X = X
-        return self
+        return X
 
     def transform(self, X):
-        return self.X
+        return X
 
     def fit_transform(self, X, y=None):
-        self.fit(X)
-        return self.X
+        X = self.fit(X)
+        return X
 
 class variance(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
@@ -31,14 +30,14 @@ class variance(BaseEstimator, TransformerMixin):
 
         pt = PowerTransformer()
         self.X = pt.fit_transform(X)
-        return self
+        return X
 
     def transform(self, X):
-        return self.X
+        return X
 
     def fit_transform(self, X, y=None):
-        self.fit(X)
-        return self.X
+        X = self.fit(X)
+        return X
 
 def fillna(X, y):
     y = y.astype(str).astype(float)
@@ -47,48 +46,52 @@ def fillna(X, y):
     return X, y
 
 def read_bioconductor(db):
-    df = pd.read_csv(db)
+    df = pd.read_csv(db, header=0)
     df = df.T
-    new_header = df.iloc[0]
+    cols = df.iloc[0].values
     df = df[1:]
     X = df.iloc[:, 1:].to_numpy()
     y = df.iloc[:, 0]
     X, y = fillna(X, y)
-    return X, y
+    return X, y, cols
 
 def read_scikit_mat(db):
     mat = scipy.io.loadmat(db)
     X = mat['X']
     y = mat['Y'][:, 0]
-    return X, y
+    cols = np.arange(X.shape[1] + 1)
+    return X, y, cols
 
 def read_ARFF(db):
     df = arff.loadarff(db)
     df = pd.DataFrame(df[0])
+    cols = df.columns
     X = df.iloc[:, :-1].to_numpy()
     y = df.iloc[:, -1]
     label_encoder = LabelEncoder().fit(y)
     y = label_encoder.transform(y)
-    return X, y
+    return X, y, cols
 
 def read_datamicroarray(db):
     df = pd.read_csv(db, header=None)
-    X = df.iloc[:, :-1].to_numpy()
+    X = df.iloc[:, :-1]
+    cols = np.arange(X.shape[1] + 1)
+    X = X.to_numpy()
     y = df.iloc[:, -1]
     X, y = fillna(X, y)
-    return X, y
+    return X, y, cols
 
 def read_and_fix(db):
     function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}
     file_type = db.split("/")[1].split("_")[0]
-    X, y = function_name[file_type](db)
-    return X, y
+    X, y, cols = function_name[file_type](db)
+    return X, y, cols
 
-def to_csv(X, y, name):
+def to_csv(X, y, cols, name):
     suffix_name = name.split("/")[1].split(".")[0]
     df_array = np.column_stack((X,y))
     df = pd.DataFrame(df_array)
-    df.to_csv('after_preprocess/' + suffix_name + ".csv", index=False, header=False)
+    df.to_csv('after_preprocess/' + suffix_name + ".csv", index=False, header=cols)
     
 path = 'Data/'
 all_files = []
@@ -97,9 +100,9 @@ for file in os.listdir(path):
         all_files.append(os.path.join(path,file))
 
 for name in all_files:
-    X, y = read_and_fix(name)
+    X, y, cols = read_and_fix(name)
     pipe = Pipeline(steps=[('imputation', imputation()), ('normalization', variance())])
     pipe.fit(X, y)
     X = pipe.transform(X)
-    to_csv(X, y, name)
+    to_csv(X, y, cols, name)
 

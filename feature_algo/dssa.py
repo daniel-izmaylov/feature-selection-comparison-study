@@ -1,11 +1,58 @@
-#[2017]-"Salp swarm algorithm: A bio-inspired optimizer for engineering design problems"
 
 import numpy as np
 from numpy.random import rand
 from numpy.random import randint
 from numpy.random import choice
-from functionHO import Fun
+import random
 
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+
+
+# error rate
+def error_rate(xt, xv, yt, yv, x):
+    # parameters
+    k = 5
+
+    # Number of instances
+    num_train = np.size(xt, 0)
+    num_valid = np.size(xv, 0)
+    # Define selected features
+    xtrain = xt[:, x == 1]
+    ytrain = yt.reshape(num_train)  # Solve bug
+    xvalid = xv[:, x == 1]
+    yvalid = yv.reshape(num_valid)  # Solve bug
+    # Training
+    mdl = KNeighborsClassifier(n_neighbors=k)
+    mdl.fit(xtrain, ytrain)
+    # Prediction
+    ypred = mdl.predict(xvalid)
+    acc = np.sum(yvalid == ypred) / num_valid
+    error = 1 - acc
+
+    return error
+
+
+# Error rate & Feature size
+def Fun(xt, xv, yt, yv, x):
+    # Parameters
+    alpha = 0.99
+    beta = 1 - alpha
+    # Original feature size
+    max_feat = len(x)
+    # Number of selected features
+    num_feat = np.sum(x == 1)
+    # Solve if no feature selected
+    if num_feat == 0:
+        cost = 1
+    else:
+        # Get error rate
+        error = error_rate(xt, xv, yt, yv, x)
+        # Objective function
+        cost = alpha * error + beta * (num_feat / max_feat)
+
+    return cost
 
 def init_position(lb, ub, N, dim):
     X = np.zeros([N, dim], dtype='float')
@@ -27,7 +74,6 @@ def binary_conversion(X, thres, N, dim):
     
     return Xbin
 
-
 def boundary(x, lb, ub):
     if x < lb:
         x = lb
@@ -36,7 +82,7 @@ def boundary(x, lb, ub):
     
     return x
 
-def LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):
+def LSA(fitF, Xbin, xt, xv, yt, yv, max_it = 10):
     t1 = fitF
     k = 1
     while k <= max_it:
@@ -47,23 +93,25 @@ def LSA(fitF, Xbin, xtrain, ytrain, opts, max_it = 10):
                 Xbin[feature] = 0
             else:
                 Xbin[feature] = 1
-        new_fit = Fun(xtrain, ytrain, Xbin, opts)
+        new_fit = Fun(xt, xv, yt, yv, Xbin)
         if new_fit < t1:
             t1 = new_fit
         k += 1
     return t1
 
 
-def jfs(xtrain, ytrain, opts):
+def fit(x, y):
     # Parameters
     ub    = 1
     lb    = 0
     thres = 0.5
     
-    N        = opts['N']
-    max_iter = opts['T']
-    M = opts['M']
+    N        = 10
+    max_iter = 100
+    M = random.uniform(0.9, 1.08)
     U_Value = rand()
+
+    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3, stratify=y)
 
     # Dimension
     dim = np.size(xtrain, 1)
@@ -90,7 +138,7 @@ def jfs(xtrain, ytrain, opts):
         
         # Fitness
         for i in range(N):
-            fit[i,0] = Fun(xtrain, ytrain, Xbin[i,:], opts)
+            fit[i,0] = Fun(xtrain, xval, ytrain, yval, Xbin[i,:])
             if fit[i,0] < fitF:
                 Xf[0,:] = X[i,:]
                 fitF    = fit[i,0]
@@ -102,7 +150,7 @@ def jfs(xtrain, ytrain, opts):
             improvement_counter = 0
 
         if improvement_counter >= 2:
-            fitF = LSA(fitF, XbinF, xtrain, ytrain, opts)
+            fitF = LSA(fitF, XbinF, xtrain, xval, ytrain, yval)
             if fitF != lastF:
                 improvement_counter = 0
 
@@ -112,8 +160,6 @@ def jfs(xtrain, ytrain, opts):
         print("Iteration:", t + 1)
         print("Best (SSA):", curve[0,t])
         t += 1
-
-
         
  	    # Compute coefficient, c1 (3.2)
         c1 = 2 * np.exp(-(4 * t / max_iter) ** 2)
@@ -165,4 +211,4 @@ def jfs(xtrain, ytrain, opts):
     # Create dictionary
     ssa_data = {'sf': sel_index, 'c': curve, 'nf': num_feat, 'bin_features': Gbin}
     
-    return ssa_data
+    return Gbin

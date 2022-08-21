@@ -77,8 +77,6 @@ def read_ARFF(db):
     df = pd.DataFrame(df[0])
     X = df.iloc[:, :-1]
     y = df.iloc[:, -1]
-    label_encoder = LabelEncoder().fit(y)
-    y = label_encoder.transform(y)
     return X, y
 
 def read_datamicroarray(db):
@@ -110,6 +108,8 @@ for file in os.listdir(path):
 for name in all_files:
     X, y = read_and_fix(name)
     cols = X.columns
+    label_encoder = LabelEncoder().fit(y)
+    y = label_encoder.transform(y)
     pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),
                            ('power_transformer', PowerTransformer())])
     X = pipe.fit_transform(X, y)

@@ -19,9 +19,9 @@ def error_rate(xt, xv, yt, yv, x):
     num_train = np.size(xt, 0)
     num_valid = np.size(xv, 0)
     # Define selected features
-    xtrain = xt[:, x == 1]
+    xtrain = xt.iloc[:, x == 1]
     ytrain = yt.reshape(num_train)  # Solve bug
-    xvalid = xv[:, x == 1]
+    xvalid = xv.iloc[:, x == 1]
     yvalid = yv.reshape(num_valid)  # Solve bug
     # Training
     mdl = KNeighborsClassifier(n_neighbors=k)
@@ -157,8 +157,6 @@ def fit(x, y):
         # Store result
         lastF = fitF
         curve[0,t] = fitF.copy()
-        print("Iteration:", t + 1)
-        print("Best (SSA):", curve[0,t])
         t += 1
         
  	    # Compute coefficient, c1 (3.2)

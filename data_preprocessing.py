@@ -6,34 +6,42 @@ import scipy.io
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
 import os
 
 class imputation(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
+        self.X = X
         imp_mean = SimpleImputer(missing_values=np.nan, strategy='mean')
         X = imp_mean.fit_transform(X)
         return X
 
     def transform(self, X):
-        return X
+        return self.X
 
     def fit_transform(self, X, y=None):
         X = self.fit(X)
         return X
 
+    def get_feature_names_out(self, features=None):
+        return self.X.columns
+
 class variance(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
-        selector = VarianceThreshold()
-        X = selector.fit_transform(X)
+        scaler = StandardScaler()
+        X = scaler.fit_transform(X)
+
+        #selector = VarianceThreshold()
+        #X = selector.fit_transform(X)
 
         pt = PowerTransformer()
-        self.X = pt.fit_transform(X)
+        X = pt.fit_transform(X)
         return X
 
     def transform(self, X):
-        return X
+        return self.X
 
     def fit_transform(self, X, y=None):
         X = self.fit(X)
@@ -48,49 +56,49 @@ def fillna(X, y):
 def read_bioconductor(db):
     df = pd.read_csv(db, header=0)
     df = df.T
-    cols = df.iloc[0].values
+    cols = df.iloc[0, :]
+    cols = cols[1:]
     df = df[1:]
-    X = df.iloc[:, 1:].to_numpy()
+    X = df.iloc[:, 1:]
     y = df.iloc[:, 0]
     X, y = fillna(X, y)
-    return X, y, cols
+    X.columns = cols
+    return X, y
 
 def read_scikit_mat(db):
     mat = scipy.io.loadmat(db)
     X = mat['X']
+    X = pd.DataFrame(X)
     y = mat['Y'][:, 0]
-    cols = np.arange(X.shape[1] + 1)
-    return X, y, cols
+    return X, y
 
 def read_ARFF(db):
     df = arff.loadarff(db)
     df = pd.DataFrame(df[0])
-    cols = df.columns
-    X = df.iloc[:, :-1].to_numpy()
+    X = df.iloc[:, :-1]
     y = df.iloc[:, -1]
     label_encoder = LabelEncoder().fit(y)
     y = label_encoder.transform(y)
-    return X, y, cols
+    return X, y
 
 def read_datamicroarray(db):
     df = pd.read_csv(db, header=None)
     X = df.iloc[:, :-1]
-    cols = np.arange(X.shape[1] + 1)
-    X = X.to_numpy()
     y = df.iloc[:, -1]
     X, y = fillna(X, y)
-    return X, y, cols
+    return X, y
 
 def read_and_fix(db):
     function_name = {'bioconductor': read_bioconductor, 'scikit': read_scikit_mat, 'ARFF': read_ARFF, 'datamicroarray': read_datamicroarray}
     file_type = db.split("/")[1].split("_")[0]
-    X, y, cols = function_name[file_type](db)
-    return X, y, cols
+    X, y = function_name[file_type](db)
+    return X, y
 
-def to_csv(X, y, cols, name):
+def to_csv(X, y, name, cols):
     suffix_name = name.split("/")[1].split(".")[0]
     df_array = np.column_stack((X,y))
     df = pd.DataFrame(df_array)
+    cols = np.append(cols, "label")
     df.to_csv('after_preprocess/' + suffix_name + ".csv", index=False, header=cols)
     
 path = 'Data/'
@@ -100,9 +108,11 @@ for file in os.listdir(path):
         all_files.append(os.path.join(path,file))
 
 for name in all_files:
-    X, y, cols = read_and_fix(name)
-    pipe = Pipeline(steps=[('imputation', imputation()), ('normalization', variance())])
-    pipe.fit(X, y)
-    X = pipe.transform(X)
-    to_csv(X, y, cols, name)
+    X, y = read_and_fix(name)
+    cols = X.columns
+    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),
+                           ('power_transformer', PowerTransformer())])
+    X = pipe.fit_transform(X, y)
+    cols = pipe.get_feature_names_out(cols)
+    to_csv(X, y, name, cols)
 

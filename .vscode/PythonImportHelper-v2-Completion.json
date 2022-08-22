@@ -178,6 +178,14 @@
         "documentation": {}
     },
     {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
         "label": "KFold",
         "importPath": "sklearn.model_selection",
         "description": "sklearn.model_selection",
@@ -247,6 +255,14 @@
         "description": "sklearn.model_selection",
         "isExtraImport": true,
         "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
+        "isExtraImport": true,
+        "detail": "sklearn.neighbors",
         "documentation": {}
     },
     {
@@ -539,6 +555,30 @@
     },
     {
         "label": "rand",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "rand",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "numpy.random",
+        "description": "numpy.random",
+        "isExtraImport": true,
+        "detail": "numpy.random",
+        "documentation": {}
+    },
+    {
+        "label": "choice",
         "importPath": "numpy.random",
         "description": "numpy.random",
         "isExtraImport": true,
@@ -1011,14 +1051,6 @@
         "documentation": {}
     },
     {
-        "label": "KEY_OPTIONS",
-        "importPath": "curses",
-        "description": "curses",
-        "isExtraImport": true,
-        "detail": "curses",
-        "documentation": {}
-    },
-    {
         "label": "Pool",
         "importPath": "multiprocessing.dummy",
         "description": "multiprocessing.dummy",
@@ -1350,6 +1382,14 @@
         "documentation": {}
     },
     {
+        "label": "New_dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
         "label": "SimpleImputer",
         "importPath": "sklearn.impute",
         "description": "sklearn.impute",
@@ -1401,6 +1441,14 @@
         "documentation": {}
     },
     {
+        "label": "turn_resDict_to_df",
+        "importPath": "utlis",
+        "description": "utlis",
+        "isExtraImport": true,
+        "detail": "utlis",
+        "documentation": {}
+    },
+    {
         "label": "isfile",
         "importPath": "os.path",
         "description": "os.path",
@@ -1441,6 +1489,78 @@
         "description": "feature_algo.Genetic_FA",
         "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    # def __init__(self ) -> None:",
         "detail": "feature_algo.Genetic_FA",
+        "documentation": {}
+    },
+    {
+        "label": "error_rate",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def error_rate(xt, xv, yt, yv, x):\n    # parameters\n    k = 5\n    # Number of instances\n    num_train = np.size(xt, 0)\n    num_valid = np.size(xv, 0)\n    # Define selected features\n    xtrain = xt[:, x == 1]\n    ytrain = yt.reshape(num_train)  # Solve bug\n    xvalid = xv[:, x == 1]",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "Fun",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def Fun(xt, xv, yt, yv, x):\n    # Parameters\n    alpha = 0.99\n    beta = 1 - alpha\n    # Original feature size\n    max_feat = len(x)\n    # Number of selected features\n    num_feat = np.sum(x == 1)\n    # Solve if no feature selected\n    if num_feat == 0:",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "init_position",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def init_position(lb, ub, N, dim):\n    M = 4\n    X = np.zeros([N, dim], dtype='float')\n    for i in range(N):\n        C = random.uniform(0, 1)\n        while C in [0.25, 0.5, 0.75]:\n            C = random.uniform(0, 1)\n        X[i, 0] = C\n        for d in range(1, dim):\n            X[i,d] = M * X[i, d-1] * (1 - X[i, d-1])",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "binary_conversion",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def binary_conversion(X, thres, N, dim):\n    Xbin = np.zeros([N, dim], dtype='int')\n    for i in range(N):\n        for d in range(dim):\n            if X[i,d] > thres:\n                Xbin[i,d] = 1\n            else:\n                Xbin[i,d] = 0\n    return Xbin\ndef boundary(x, lb, ub):",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "boundary",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def boundary(x, lb, ub):\n    if x < lb:\n        x = lb\n    if x > ub:\n        x = ub\n    return x\ndef LSA(fitF, Xbin, xt, xv, yt, yv, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "LSA",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def LSA(fitF, Xbin, xt, xv, yt, yv, max_it = 10):\n    t1 = fitF\n    k = 1\n    while k <= max_it:\n        num_features = choice([2, 5])\n        feature_numbers = randint(0, Xbin.size, num_features)\n        for feature in feature_numbers:\n            if Xbin[feature] == 1:\n                Xbin[feature] = 0\n            else:",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "mutation",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def mutation(N, dim, X, solution_num):\n    F = np.zeros([dim], dtype='float')\n    for i in range(dim):\n        F[i] = random.uniform(0.2, 0.8)\n    # pick 3 solutions that are not the current solution:\n    optional_i = [i for i in range(N) if i not in [solution_num]]\n    sources_i = random.sample(optional_i, 3)\n    # create the new mutation for solution i (X)\n    for i in range(dim):\n        X[solution_num, i] = X[sources_i[0], i] + F[i] * (X[sources_i[1], i] - X[sources_i[2], i])",
+        "detail": "feature_algo.New_dssa",
+        "documentation": {}
+    },
+    {
+        "label": "fit",
+        "kind": 2,
+        "importPath": "feature_algo.New_dssa",
+        "description": "feature_algo.New_dssa",
+        "peekOfCode": "def fit(x, y):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = 10\n    max_iter = 100\n    M = random.uniform(0.9, 1.07)\n    U_Value = random.uniform(0, 1)\n    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3)",
+        "detail": "feature_algo.New_dssa",
         "documentation": {}
     },
     {
@@ -1502,7 +1622,7 @@
         "kind": 2,
         "importPath": "feature_algo.dssa",
         "description": "feature_algo.dssa",
-        "peekOfCode": "def fit(x, y):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = 10\n    max_iter = 100\n    M = random.uniform(0.9, 1.08)\n    U_Value = rand()\n    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3, stratify=y)",
+        "peekOfCode": "def fit(x, y):\n    # Parameters\n    ub    = 1\n    lb    = 0\n    thres = 0.5\n    N        = 10\n    max_iter = 100\n    M = random.uniform(0.9, 1.08)\n    U_Value = rand()\n    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3)",
         "detail": "feature_algo.dssa",
         "documentation": {}
     },
@@ -1718,7 +1838,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\",\"ReliefF\"]",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\"]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1727,7 +1847,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\n# FS_ALGO_LIST= [\"f_classif\",\"MRMR\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\"]\n# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\nK_OPTIONS= [50,100]\ndef run_grid_search(db):",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"MRMR\",\"SVM\"]\nFS_ALGO_LIST= [\"f_classif\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\n# FS_ALGO_LIST= [\"f_classif\",\"MRMR\",\"ReliefF\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\"]\n# FS_ALGO_LIST= [\"New_dssa\",\"dssa\"]\n# FS_ALGO_LIST= [\"dssa\"]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1736,7 +1856,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            # 'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\nclass NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):",
+        "peekOfCode": "def get_clf_dict():\n    return {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\nclass NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1745,7 +1865,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def run_grid_search(db):\n    X= db[:,:-1]\n    y= db[:,-1]\n    with MyPool(processes=len(FS_ALGO_LIST)) as pool:\n        results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)\n                                  ,FS_ALGO_LIST)\n    results= {k: v for d in results for k, v in d.items()}\n    return results           \ndef calculate_per_FS_algo(fs_algo,X=[],y=[]):\n    print(\"Calculating for {}\".format(fs_algo))",
+        "peekOfCode": "def run_grid_search(db):\n    X= db[:,:-1]\n    y= db[:,-1]\n    with MyPool(processes=len(FS_ALGO_LIST)) as pool:\n        results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)\n                                  ,FS_ALGO_LIST)\n    results= {k: v for d in results for k, v in d.items()}\n    return results    \ndef calculate_per_FS_algo(fs_algo,X=[],y=[]):\n    print(\"Calculating for {}\".format(fs_algo))",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1799,16 +1919,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def clf_res(res,clf):\n    # res= k_value_dict[k][clf]\n    clf_df= pd.DataFrame.from_dict(res)\n    clf_df.index = clf_df.index.set_names(['metric'])\n    clf_df.reset_index(inplace=True)\n    clf_df[\"Learning algorithm\"]= clf\n    return clf_df\ndef turn_resDict_to_df(results):\n    all_df=[]\n    for fold,fs_algo_lst in results.items():",
-        "detail": "comparison",
-        "documentation": {}
-    },
-    {
-        "label": "turn_resDict_to_df",
-        "kind": 2,
-        "importPath": "comparison",
-        "description": "comparison",
-        "peekOfCode": "def turn_resDict_to_df(results):\n    all_df=[]\n    for fold,fs_algo_lst in results.items():\n        for fs_algo in fs_algo_lst:\n            for fs_algo_name in fs_algo.keys():\n                k_value_dict= fs_algo[fs_algo_name]\n                k_df= pd.DataFrame()\n                fs_time= k_value_dict[\"fs_time\"]\n                for k in list(k_value_dict.keys())[1:]:\n                    res_df= pd.DataFrame()",
+        "peekOfCode": "def clf_res(res,clf):\n    # res= k_value_dict[k][clf]\n    clf_df= pd.DataFrame.from_dict(res)\n    clf_df.index = clf_df.index.set_names(['metric'])\n    clf_df.reset_index(inplace=True)\n    clf_df[\"Learning algorithm\"]= clf\n    return clf_df\nfrom  sklearn.model_selection import StratifiedKFold",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1862,7 +1973,7 @@
         "kind": 2,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "def read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)\n    return X, y\ndef read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)",
+        "peekOfCode": "def read_ARFF(db):\n    df = arff.loadarff(db)\n    df = pd.DataFrame(df[0])\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    return X, y\ndef read_datamicroarray(db):\n    df = pd.read_csv(db, header=None)\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1898,7 +2009,7 @@
         "kind": 5,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "path = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),\n                           ('power_transformer', PowerTransformer())])",
+        "peekOfCode": "path = 'Data/'\nall_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1907,7 +2018,7 @@
         "kind": 5,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "all_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),\n                           ('power_transformer', PowerTransformer())])\n    X = pipe.fit_transform(X, y)",
+        "peekOfCode": "all_files = []\nfor file in os.listdir(path):\n    if os.path.isfile(os.path.join(path,file)):\n        all_files.append(os.path.join(path,file))\nfor name in all_files:\n    X, y = read_and_fix(name)\n    cols = X.columns\n    label_encoder = LabelEncoder().fit(y)\n    y = label_encoder.transform(y)\n    pipe = Pipeline(steps=[('imputation', imputation()), ('variance_thresh', VarianceThreshold()), ('normalization', StandardScaler()),",
         "detail": "data_preprocessing",
         "documentation": {}
     },
@@ -1934,7 +2045,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\ndef main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1",
+        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\ndef main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    columns=list(db.columns)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]",
         "detail": "main",
         "documentation": {}
     },
@@ -1943,8 +2054,26 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1\n    #save results into pickle file\n    with open(\"results/\"+database_name+\".pkl\", \"wb\") as f:\n        pickle.dump(results, f)",
+        "peekOfCode": "def main(database_name):\n    freeze_seed(42)\n    db=pd.read_csv(\"after_preprocess/\"+database_name+\".csv\",header=0)\n    columns=list(db.columns)\n    results=comparison.run_grid_search(db.values)\n    results[\"Dataset Name\"]=database_name\n    results[\"Number of samples\"]=db.shape[0]\n    results[\"Original Number of features\"]=db.shape[1]-1\n    #save results as csv file\n    results_csv= turn_resDict_to_df(results,columns)",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "get_fold",
+        "kind": 2,
+        "importPath": "utlis",
+        "description": "utlis",
+        "peekOfCode": "def get_fold(x):\n    if x<50:\n        return \"Leave-pair-out\"\n    elif x<=100:\n        return \"LOOCV\"\n    elif x<=1000:\n        return \"StratifiedKFold n_splits = 10\"\n    else:\n        return \"StratifiedKFold n_splits = 5\"\ndef turn_resDict_to_df(results,columns):",
+        "detail": "utlis",
+        "documentation": {}
+    },
+    {
+        "label": "turn_resDict_to_df",
+        "kind": 2,
+        "importPath": "utlis",
+        "description": "utlis",
+        "peekOfCode": "def turn_resDict_to_df(results,columns):\n    all_df=[]\n    for algo_name,fs_algo_lst in list(results.items())[:-3]:\n        # database_name= results\n        for k, k_res in list(fs_algo_lst.items())[:-1]:\n            fs_time= fs_algo_lst[\"fs_algo\"]\n            # print(fold, fold_res)\n            chosen_features= k_res[\"chosen_features\"]\n            feature_rank= k_res[\"feature_rank\"]\n            # print(fold)",
+        "detail": "utlis",
         "documentation": {}
     }
 ]

@@ -1,4 +1,3 @@
-from curses import KEY_OPTIONS
 from multiprocessing.dummy import Pool
 from sklearn.base import BaseEstimator, TransformerMixin 
 from sklearn.metrics import make_scorer
@@ -49,6 +48,8 @@ import scipy.io
 from sklearn.feature_selection import RFE
 from feature_algo.Genetic_FA import Genetic_FA 
 from  feature_algo import dssa 
+from  feature_algo import New_dssa 
+
 from multiprocessing.pool import ThreadPool
 import pickle    
 from timeit import default_timer as timer
@@ -57,7 +58,7 @@ from sklearn.metrics import roc_curve, auc
 
 def get_clf_dict():
     return {'LogisticRegression': LogisticRegression(),
-            # 'RandomForestClassifier': RandomForestClassifier(),
+            'RandomForestClassifier': RandomForestClassifier(),
             'KNeighborsClassifier': KNeighborsClassifier(),
             'GaussianNB': GaussianNB(),
             'SVC': SVC(probability=True)}
@@ -73,10 +74,13 @@ class MyPool(PoolParent):
     Process = NoDaemonProcess
     
 # FS_ALGO_LIST= ["MRMR","SVM"]
-FS_ALGO_LIST= ["f_classif","ReliefF"]
+FS_ALGO_LIST= ["f_classif"]
 # FS_ALGO_LIST= ["ReliefF"]
 # FS_ALGO_LIST= ["f_classif","MRMR","ReliefF"]
-# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF"]
+# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa"]
+# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa"]
+# FS_ALGO_LIST= ["New_dssa","dssa"]
+# FS_ALGO_LIST= ["dssa"]
 
 # K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
 K_OPTIONS= [50,100]
@@ -92,8 +96,7 @@ def run_grid_search(db):
                                   ,FS_ALGO_LIST)
 
     results= {k: v for d in results for k, v in d.items()}
-                 
-    return results           
+    return results    
 
 
 
@@ -118,9 +121,9 @@ def calculate_per_FS_algo(fs_algo,X=[],y=[]):
         temp= pool.map(partial(k_level,X=X,y=y,best_feature=best_feature, best_feature_index=best_feature_index)
                                   ,K_OPTIONS)
     res= {k: v for d in temp for k, v in d.items()}
-    res['fs_time']= fs_time
+    res['fs_algo']= fs_time
 
-    return res                
+    return {fs_algo:res}                
 
 
     
@@ -137,8 +140,9 @@ def k_level(k,X,y,best_feature=[], best_feature_index=[]):
         for clf_name, clf in clf_list:
             res[clf_name]={}
             res[clf_name][0]={}
+            res[clf_name][0]= {'accuracy':0,"MCC":0,"AUC":0,"PR-AUC":0}
             res[clf_name][0]["infrence_time"]=0
-            res[clf_name][0]["res"]= {'accuracy':0,"MCC":0,"AUC":0,"PR-AUC":0}
+
         return {k:res}
 
 
@@ -153,6 +157,7 @@ def k_level(k,X,y,best_feature=[], best_feature_index=[]):
         # res[i]={}
     for clf_name, clf in clf_list:
         res[clf_name]={}
+
         if len(X)<=100: #leave one out
             y_test = []
             y_prob=[]
@@ -237,7 +242,10 @@ def feature_selection(fs_algo,X_train, y_train):
     elif fs_algo=="dssa":
             # fs_function= dssa()
             return  SelectKBest(dssa.fit,k=100).fit(X_train,y_train),timer()-start
-        
+
+    elif fs_algo=="New_dssa":
+        # fs_function= dssa()
+        return  SelectKBest(New_dssa.fit,k=100).fit(X_train,y_train),timer()-start    
     
     
 def get_fold(x):
@@ -262,29 +270,5 @@ def clf_res(res,clf):
     
     return clf_df
 
-def turn_resDict_to_df(results):
-    all_df=[]
-    for fold,fs_algo_lst in results.items():
-        for fs_algo in fs_algo_lst:
-            for fs_algo_name in fs_algo.keys():
-                k_value_dict= fs_algo[fs_algo_name]
-                k_df= pd.DataFrame()
-                fs_time= k_value_dict["fs_time"]
-                for k in list(k_value_dict.keys())[1:]:
-                
-                    res_df= pd.DataFrame()
-                    res_df=map(lambda clf:(clf_res(k_value_dict[k][clf],clf)),list(k_value_dict[k].keys())[2:])
-                    res_df= pd.concat(res_df)
-                    # display(res_df)
-                    chosen_features= k_value_dict[k]["chosen_features"]
-                    feature_rank= k_value_dict[k]["feature_rank"]
-                    res_df["chosen_features"]=[chosen_features]*res_df.shape[0]
-                    res_df["Selected Features scores"]=[feature_rank]*res_df.shape[0]
-                    res_df["fs_time"]=[fs_time]*res_df.shape[0]
-                    res_df["Number of features selected (K)"]=[k]*res_df.shape[0]
-                    res_df["Filtering Algorithm"]=[fs_algo_name]*res_df.shape[0]
-                    res_df["Fold"]=[fold]*res_df.shape[0]
-                    all_df.append(res_df.copy(deep=True))
-    return pd.concat(all_df, ignore_index=True)
 
 from  sklearn.model_selection import StratifiedKFold

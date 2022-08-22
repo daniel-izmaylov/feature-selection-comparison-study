@@ -126,7 +126,7 @@ def fit(x, y):
     M = random.uniform(0.9, 1.07)
     U_Value = random.uniform(0, 1)
 
-    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3, stratify=y)
+    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3)
 
     # Dimension
     dim = np.size(xtrain, 1)
@@ -176,8 +176,8 @@ def fit(x, y):
         lastF = fitF
         feature_counter = np.add(feature_counter, XbinF)
         curve[0,t] = fitF.copy()
-        print("Iteration:", t + 1)
-        print("Best (SSA):", curve[0,t])
+        # print("Iteration:", t + 1)
+        # print("Best (SSA):", curve[0,t])
         t += 1
         
  	    # Compute coefficient, c1 (3.2)

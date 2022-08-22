@@ -111,7 +111,7 @@ def fit(x, y):
     M = random.uniform(0.9, 1.08)
     U_Value = rand()
 
-    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3, stratify=y)
+    xtrain, xval, ytrain, yval = train_test_split(x, y, test_size=0.3)
 
     # Dimension
     dim = np.size(xtrain, 1)

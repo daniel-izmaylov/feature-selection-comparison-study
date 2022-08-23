@@ -92,7 +92,6 @@ def main():
 def contingency_table(a,b,total):
     obs = np.array([[a,total-a ], [b,total-b]])
     chi2, p, dof, ex =chi2_contingency(obs)
-    # print(p)
     if p>0.05:
         return True
     else:
@@ -119,8 +118,12 @@ class Genetic_FA():
         self.feature_set=set(range(self.n_features))
         
         
-        lst=[]
-        r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
+        r=[]
+        # r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
+        # r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
+        for i in range (0,10):
+            r.append(self.genetic_algorithm(i))
+
         #defult dict with set
         counting_dict=defaultdict(set)
         for i,lst in enumerate(r):
@@ -134,7 +137,7 @@ class Genetic_FA():
         set_final=set()
         for i,key in enumerate(r_lst[:-1]):
             keys_2=r_lst[i+1]
-            if contingency_table(counting_dict[key],counting_dict[keys_2],500):
+            if contingency_table(counting_dict[key],counting_dict[keys_2],self.n_features):
                 set_final.add(key)
                 set_final.add(keys_2)
                 

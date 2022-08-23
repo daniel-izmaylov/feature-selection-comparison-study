@@ -34,6 +34,14 @@
         "documentation": {}
     },
     {
+        "label": "make_pipeline",
+        "importPath": "sklearn.pipeline",
+        "description": "sklearn.pipeline",
+        "isExtraImport": true,
+        "detail": "sklearn.pipeline",
+        "documentation": {}
+    },
+    {
         "label": "Pipeline",
         "importPath": "sklearn.pipeline",
         "description": "sklearn.pipeline",
@@ -322,11 +330,11 @@
         "documentation": {}
     },
     {
-        "label": "LogisticRegression",
-        "importPath": "sklearn.linear_model",
-        "description": "sklearn.linear_model",
+        "label": "KNeighborsClassifier",
+        "importPath": "sklearn.neighbors",
+        "description": "sklearn.neighbors",
         "isExtraImport": true,
-        "detail": "sklearn.linear_model",
+        "detail": "sklearn.neighbors",
         "documentation": {}
     },
     {
@@ -351,6 +359,30 @@
         "description": "sklearn.linear_model",
         "isExtraImport": true,
         "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "LogisticRegression",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestClassifier",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
         "documentation": {}
     },
     {
@@ -395,6 +427,38 @@
     },
     {
         "label": "mutual_info_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "f_classif",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectKBest",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "RFE",
+        "importPath": "sklearn.feature_selection",
+        "description": "sklearn.feature_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.feature_selection",
+        "documentation": {}
+    },
+    {
+        "label": "SelectFdr",
         "importPath": "sklearn.feature_selection",
         "description": "sklearn.feature_selection",
         "isExtraImport": true,
@@ -825,6 +889,14 @@
         "documentation": {}
     },
     {
+        "label": "accuracy_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
         "label": "make_scorer",
         "importPath": "sklearn.metrics",
         "description": "sklearn.metrics",
@@ -1043,6 +1115,340 @@
         "documentation": {}
     },
     {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "over_sampling",
+        "importPath": "imblearn",
+        "description": "imblearn",
+        "isExtraImport": true,
+        "detail": "imblearn",
+        "documentation": {}
+    },
+    {
+        "label": "RandomOverSampler",
+        "importPath": "imblearn.over_sampling",
+        "description": "imblearn.over_sampling",
+        "isExtraImport": true,
+        "detail": "imblearn.over_sampling",
+        "documentation": {}
+    },
+    {
+        "label": "KernelPCA",
+        "importPath": "sklearn.decomposition",
+        "description": "sklearn.decomposition",
+        "isExtraImport": true,
+        "detail": "sklearn.decomposition",
+        "documentation": {}
+    },
+    {
+        "label": "PCA",
+        "importPath": "sklearn.decomposition",
+        "description": "sklearn.decomposition",
+        "isExtraImport": true,
+        "detail": "sklearn.decomposition",
+        "documentation": {}
+    },
+    {
+        "label": "PCA",
+        "importPath": "sklearn.decomposition",
+        "description": "sklearn.decomposition",
+        "isExtraImport": true,
+        "detail": "sklearn.decomposition",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "listdir",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "SVC",
+        "importPath": "sklearn.svm",
+        "description": "sklearn.svm",
+        "isExtraImport": true,
+        "detail": "sklearn.svm",
+        "documentation": {}
+    },
+    {
+        "label": "GaussianNB",
+        "importPath": "sklearn.naive_bayes",
+        "description": "sklearn.naive_bayes",
+        "isExtraImport": true,
+        "detail": "sklearn.naive_bayes",
+        "documentation": {}
+    },
+    {
+        "label": "GaussianNB",
+        "importPath": "sklearn.naive_bayes",
+        "description": "sklearn.naive_bayes",
+        "isExtraImport": true,
+        "detail": "sklearn.naive_bayes",
+        "documentation": {}
+    },
+    {
+        "label": "GaussianNB",
+        "importPath": "sklearn.naive_bayes",
+        "description": "sklearn.naive_bayes",
+        "isExtraImport": true,
+        "detail": "sklearn.naive_bayes",
+        "documentation": {}
+    },
+    {
+        "label": "isfile",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "join",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "isfile",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "join",
+        "importPath": "os.path",
+        "description": "os.path",
+        "isExtraImport": true,
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
+        "label": "New_dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
+        "label": "dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
+        "label": "New_dssa",
+        "importPath": "feature_algo",
+        "description": "feature_algo",
+        "isExtraImport": true,
+        "detail": "feature_algo",
+        "documentation": {}
+    },
+    {
+        "label": "MRMR",
+        "importPath": "skfeature.function.information_theoretical_based",
+        "description": "skfeature.function.information_theoretical_based",
+        "isExtraImport": true,
+        "detail": "skfeature.function.information_theoretical_based",
+        "documentation": {}
+    },
+    {
+        "label": "MRMR",
+        "importPath": "skfeature.function.information_theoretical_based",
+        "description": "skfeature.function.information_theoretical_based",
+        "isExtraImport": true,
+        "detail": "skfeature.function.information_theoretical_based",
+        "documentation": {}
+    },
+    {
+        "label": "MRMR",
+        "importPath": "skfeature.function.information_theoretical_based",
+        "description": "skfeature.function.information_theoretical_based",
+        "isExtraImport": true,
+        "detail": "skfeature.function.information_theoretical_based",
+        "documentation": {}
+    },
+    {
+        "label": "ReliefF",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ReliefF",
+        "description": "ReliefF",
+        "detail": "ReliefF",
+        "documentation": {}
+    },
+    {
+        "label": "comparison",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "comparison",
+        "description": "comparison",
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "get_fold",
+        "importPath": "comparison",
+        "description": "comparison",
+        "isExtraImport": true,
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "evalute",
+        "importPath": "comparison",
+        "description": "comparison",
+        "isExtraImport": true,
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "feature_selection",
+        "importPath": "comparison",
+        "description": "comparison",
+        "isExtraImport": true,
+        "detail": "comparison",
+        "documentation": {}
+    },
+    {
+        "label": "default_timer",
+        "importPath": "timeit",
+        "description": "timeit",
+        "isExtraImport": true,
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "default_timer",
+        "importPath": "timeit",
+        "description": "timeit",
+        "isExtraImport": true,
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "default_timer",
+        "importPath": "timeit",
+        "description": "timeit",
+        "isExtraImport": true,
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "utlis",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "utlis",
+        "description": "utlis",
+        "detail": "utlis",
+        "documentation": {}
+    },
+    {
+        "label": "turn_resDict_to_df",
+        "importPath": "utlis",
+        "description": "utlis",
+        "isExtraImport": true,
+        "detail": "utlis",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
         "label": "KEY_OPTIONS",
         "importPath": "curses",
         "description": "curses",
@@ -1147,86 +1553,6 @@
         "documentation": {}
     },
     {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "SVC",
-        "importPath": "sklearn.svm",
-        "description": "sklearn.svm",
-        "isExtraImport": true,
-        "detail": "sklearn.svm",
-        "documentation": {}
-    },
-    {
-        "label": "PCA",
-        "importPath": "sklearn.decomposition",
-        "description": "sklearn.decomposition",
-        "isExtraImport": true,
-        "detail": "sklearn.decomposition",
-        "documentation": {}
-    },
-    {
-        "label": "PCA",
-        "importPath": "sklearn.decomposition",
-        "description": "sklearn.decomposition",
-        "isExtraImport": true,
-        "detail": "sklearn.decomposition",
-        "documentation": {}
-    },
-    {
-        "label": "GaussianNB",
-        "importPath": "sklearn.naive_bayes",
-        "description": "sklearn.naive_bayes",
-        "isExtraImport": true,
-        "detail": "sklearn.naive_bayes",
-        "documentation": {}
-    },
-    {
-        "label": "GaussianNB",
-        "importPath": "sklearn.naive_bayes",
-        "description": "sklearn.naive_bayes",
-        "isExtraImport": true,
-        "detail": "sklearn.naive_bayes",
-        "documentation": {}
-    },
-    {
         "label": "mkdtemp",
         "importPath": "tempfile",
         "description": "tempfile",
@@ -1272,31 +1598,6 @@
         "description": "shutil",
         "isExtraImport": true,
         "detail": "shutil",
-        "documentation": {}
-    },
-    {
-        "label": "ReliefF",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "ReliefF",
-        "description": "ReliefF",
-        "detail": "ReliefF",
-        "documentation": {}
-    },
-    {
-        "label": "MRMR",
-        "importPath": "skfeature.function.information_theoretical_based",
-        "description": "skfeature.function.information_theoretical_based",
-        "isExtraImport": true,
-        "detail": "skfeature.function.information_theoretical_based",
-        "documentation": {}
-    },
-    {
-        "label": "MRMR",
-        "importPath": "skfeature.function.information_theoretical_based",
-        "description": "skfeature.function.information_theoretical_based",
-        "isExtraImport": true,
-        "detail": "skfeature.function.information_theoretical_based",
         "documentation": {}
     },
     {
@@ -1349,22 +1650,6 @@
         "documentation": {}
     },
     {
-        "label": "default_timer",
-        "importPath": "timeit",
-        "description": "timeit",
-        "isExtraImport": true,
-        "detail": "timeit",
-        "documentation": {}
-    },
-    {
-        "label": "default_timer",
-        "importPath": "timeit",
-        "description": "timeit",
-        "isExtraImport": true,
-        "detail": "timeit",
-        "documentation": {}
-    },
-    {
         "label": "pickle",
         "kind": 6,
         "isExtraImport": true,
@@ -1383,77 +1668,11 @@
         "documentation": {}
     },
     {
-        "label": "dssa",
-        "importPath": "feature_algo",
-        "description": "feature_algo",
-        "isExtraImport": true,
-        "detail": "feature_algo",
-        "documentation": {}
-    },
-    {
-        "label": "New_dssa",
-        "importPath": "feature_algo",
-        "description": "feature_algo",
-        "isExtraImport": true,
-        "detail": "feature_algo",
-        "documentation": {}
-    },
-    {
         "label": "SimpleImputer",
         "importPath": "sklearn.impute",
         "description": "sklearn.impute",
         "isExtraImport": true,
         "detail": "sklearn.impute",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "listdir",
-        "importPath": "os",
-        "description": "os",
-        "isExtraImport": true,
-        "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "comparison",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "comparison",
-        "description": "comparison",
-        "detail": "comparison",
-        "documentation": {}
-    },
-    {
-        "label": "turn_resDict_to_df",
-        "importPath": "utlis",
-        "description": "utlis",
-        "isExtraImport": true,
-        "detail": "utlis",
-        "documentation": {}
-    },
-    {
-        "label": "isfile",
-        "importPath": "os.path",
-        "description": "os.path",
-        "isExtraImport": true,
-        "detail": "os.path",
-        "documentation": {}
-    },
-    {
-        "label": "join",
-        "importPath": "os.path",
-        "description": "os.path",
-        "isExtraImport": true,
-        "detail": "os.path",
         "documentation": {}
     },
     {
@@ -1495,7 +1714,7 @@
         "kind": 2,
         "importPath": "feature_algo.Genetic_FA",
         "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    # print(p)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    # def __init__(self ) -> None:",
+        "peekOfCode": "def contingency_table(a,b,total):\n    obs = np.array([[a,total-a ], [b,total-b]])\n    chi2, p, dof, ex =chi2_contingency(obs)\n    if p>0.05:\n        return True\n    else:\n        return False\nclass Genetic_FA():\n    # def __init__(self ) -> None:\n    def fit(self,X,y):",
         "detail": "feature_algo.Genetic_FA",
         "documentation": {}
     },
@@ -1752,6 +1971,87 @@
         "documentation": {}
     },
     {
+        "label": "freeze_seed",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def freeze_seed(seed):\n    random.seed(seed)\n    np.random.seed(seed)\nCLASSIFIERS = {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\n# FS_ALGORITHMS = {'dssa': SelectKBest(dssa.fit,k=100), 'New_dssa': SelectKBest(New_dssa.fit,k=100), 'f_classif': SelectFdr(score_func=f_classif,alpha=0.1),\n#                  'MRMR': SelectKBest(score_func=MRMR.mrmr,k=100), 'ReliefF': SelectKBest(score_func=ReliefF.ReliefF,k=100),",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "get_best_config",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def get_best_config(file_name):\n    head = ['index', 'value', 'infrence_time', 'Learning algorithm', 'Number of features selected (K)', 'chosen_features', 'Selected Features scores',\n            'Filtering Algorithm', 'Fold', 'fs_time', 'Dataset Name', 'Number of samples', 'Original Number of features', 'CV Method']\n    # with open(\"augmentation_t.csv\", \"a\", newline=\"\") as fn:\n    #     write = csv.writer(fn)\n    #     write.writerow(head)\n    # path = 'results/'\n    # all_files = []\n    # for file in os.listdir(path):\n    #     if os.path.isfile(os.path.join(path, file)):",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "return_best_config",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def return_best_config(df):\n    t = df[df[\"index\"]==\"AUC\"].groupby([\"Filtering Algorithm\",\"Number of features selected (K)\",\"Learning algorithm\"]).mean().reset_index()\n    t = t.sort_values(by=[\"value\"],ascending=False).iloc[0]\n    return t\ndef evaluate_augmentation(file_name, feature_num, classifier, fs_algorithm):\n    db_name = file_name.split(\".\")[0].replace(\"_results\", \"\")\n    df = pd.read_csv(\"after_preprocess/\" + db_name + \".csv\", header=0)\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    fold_func = get_fold(X)",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "evaluate_augmentation",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def evaluate_augmentation(file_name, feature_num, classifier, fs_algorithm):\n    db_name = file_name.split(\".\")[0].replace(\"_results\", \"\")\n    df = pd.read_csv(\"after_preprocess/\" + db_name + \".csv\", header=0)\n    X = df.iloc[:, :-1]\n    y = df.iloc[:, -1]\n    fold_func = get_fold(X)\n    y_prob_all = []\n    y_pred_all = []\n    y_test_all = []\n    cls_time_all = []",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "run_cls",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def run_cls(classifier, xtrain, ytrain, xtest, ytest):\n    start = timer()\n    cf = CLASSIFIERS[classifier].fit(xtrain, ytrain)\n    ypred = cf.predict_proba(xtest)\n    cls_time = timer() - start\n    return ypred, cls_time\ndef prep_results(res, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method,db_name):\n    rows = []\n    for key, value in res.items():\n        rows.append([key, value, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method])",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "prep_results",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def prep_results(res, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method,db_name):\n    rows = []\n    for key, value in res.items():\n        rows.append([key, value, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method])\n    with open(\"augmenrataion_res/\"+db_name+\"augmentation.csv\", \"a\", newline=\"\") as fn:\n        write = csv.writer(fn)\n        write.writerows(rows)\ndef create_pca(feature_num, fs_algorithm, xtrain, xtest, ytrain, ytest):\n    start = timer()\n    selected,time = feature_selection(fs_algorithm,xtrain.values, ytrain.values)",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "create_pca",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def create_pca(feature_num, fs_algorithm, xtrain, xtest, ytrain, ytest):\n    start = timer()\n    selected,time = feature_selection(fs_algorithm,xtrain.values, ytrain.values)\n    total = timer() - start\n    if fs_algorithm==\"ReliefF\":\n        k_best_index = np.argpartition(selected, -feature_num)[-feature_num:]\n        k_best_scores=selected\n    elif fs_algorithm==\"SVD\" or fs_algorithm==\"RFE\" or fs_algorithm==\"SVC\":\n        k_best_index=selected[-feature_num:]\n        k_best_scores=selected[-feature_num:]",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "make_augmentation",
+        "kind": 2,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "def make_augmentation(xtrain, ytrain):\n    rm = RandomOverSampler(random_state=42)\n    sm = over_sampling.SMOTE(k_neighbors=2,random_state=101)\n    X_res, Y_res= rm.fit_resample(xtrain.values, ytrain)\n    X_res, Y_res = sm.fit_resample(X_res, Y_res)\n    return  X_res, Y_res\nif __name__ == \"__main__\":\n    try:\n        task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])\n    except KeyError:",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
+        "label": "CLASSIFIERS",
+        "kind": 5,
+        "importPath": "augmentation",
+        "description": "augmentation",
+        "peekOfCode": "CLASSIFIERS = {'LogisticRegression': LogisticRegression(),\n            'RandomForestClassifier': RandomForestClassifier(),\n            'KNeighborsClassifier': KNeighborsClassifier(),\n            'GaussianNB': GaussianNB(),\n            'SVC': SVC(probability=True)}\n# FS_ALGORITHMS = {'dssa': SelectKBest(dssa.fit,k=100), 'New_dssa': SelectKBest(New_dssa.fit,k=100), 'f_classif': SelectFdr(score_func=f_classif,alpha=0.1),\n#                  'MRMR': SelectKBest(score_func=MRMR.mrmr,k=100), 'ReliefF': SelectKBest(score_func=ReliefF.ReliefF,k=100),\n#                  'SVM': RFE(SVC(kernel='linear'),n_features_to_select=100,step=1)}\ndef get_best_config(file_name):\n    head = ['index', 'value', 'infrence_time', 'Learning algorithm', 'Number of features selected (K)', 'chosen_features', 'Selected Features scores',",
+        "detail": "augmentation",
+        "documentation": {}
+    },
+    {
         "label": "NoDaemonProcess",
         "kind": 6,
         "importPath": "comparison copy",
@@ -1846,7 +2146,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"ReliefF\"]",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"SVM\"]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -1855,7 +2155,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\n# K_OPTIONS= [50,100]\ndef run_grid_search(db):\n    X= db[:,:-1]\n    y= db[:,-1]\n    with MyPool(processes=len(FS_ALGO_LIST)) as pool:",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"SVM\"]\nFS_ALGO_LIST=[\"Genetic\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\n# K_OPTIONS= [50,100]\ndef run_grid_search(db):\n    X= db[:,:-1]",
         "detail": "comparison",
         "documentation": {}
     },

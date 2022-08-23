@@ -73,8 +73,9 @@ class NoDaemonProcess(Process):
 class MyPool(PoolParent):
     Process = NoDaemonProcess
     
-FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
-
+# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
+# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","SVM"]
+FS_ALGO_LIST=["Genetic"]
 # FS_ALGO_LIST= ["ReliefF"]
 
 K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]

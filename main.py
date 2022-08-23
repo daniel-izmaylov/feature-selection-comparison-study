@@ -37,11 +37,12 @@ if __name__ == "__main__":
     try:
         task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
     except KeyError:
-        task_n=7
+        task_n=5
 
     files= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))]
-    files.sort()
+    # files.sort()
     file_name=files[task_n]
+    # file_name="bioconductor_breastCancerVDX"
     print(file_name.split(".")[0])
 
     main(file_name.split(".")[0])

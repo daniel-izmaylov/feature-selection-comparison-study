@@ -1,10 +1,7 @@
-import sys
 import numpy as np
 import pandas as pd
 import comparison
-import pickle
 import random
-from os import walk
 
 #freeze all seeds for reproducibility
 import os
@@ -37,14 +34,17 @@ from os.path import isfile, join
 
 
 if __name__ == "__main__":
+    try:
+        task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
+    except KeyError:
+        task_n=7
 
-    # task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
-    # task_n= 18
-    # file_name= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))][task_n]
-    # database_name= file_name.split(".")[0]
-    # print(database_name)
+    files= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))]
+    files.sort()
+    file_name=files[task_n]
+    print(file_name.split(".")[0])
 
-    # main(file_name.split(".")[0])
+    main(file_name.split(".")[0])
 
-    database_name="bioconductor_bladderbatch"
-    main(database_name)
+    # database_name="bioconductor_bladderbatch"
+    # main(database_name)

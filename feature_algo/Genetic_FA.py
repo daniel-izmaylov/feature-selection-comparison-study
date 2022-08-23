@@ -106,7 +106,7 @@ class Genetic_FA():
     
     def fit(self,X,y):
         #split the data into train and validation
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         self.n_features = min(500,X_train.shape[1] )
         
@@ -120,7 +120,7 @@ class Genetic_FA():
         
         
         lst=[]
-        r = process_map(self.genetic_algorithm, range(0, 3), max_workers=20)
+        r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
         #defult dict with set
         counting_dict=defaultdict(set)
         for i,lst in enumerate(r):
@@ -228,7 +228,7 @@ class Genetic_FA():
                 return old_best
             # if gen_of_best>=2 and gen>=5 or old_best_score==1.0:
             #     return old_best      
-            print("Generation:", gen)
+            # print("Generation:", gen)
             # evaluate all candidates in the population
             if gen>0 and gen%10==0:
                 pop= self.repopulate(pop,self.n_features)

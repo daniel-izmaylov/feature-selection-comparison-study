@@ -34,7 +34,7 @@ from sklearn.feature_selection import SelectFdr, chi2, f_classif
 from sklearn.metrics import precision_recall_curve
 import numpy as np 
 import scipy.io
-import ReliefF
+import reliefF
 from skfeature.function.information_theoretical_based import MRMR
 from tqdm import tqdm
 from multiprocessing.pool import Pool as PoolParent
@@ -73,17 +73,12 @@ class NoDaemonProcess(Process):
 class MyPool(PoolParent):
     Process = NoDaemonProcess
     
-# FS_ALGO_LIST= ["MRMR","SVM"]
-FS_ALGO_LIST= ["f_classif"]
-# FS_ALGO_LIST= ["ReliefF"]
-# FS_ALGO_LIST= ["f_classif","MRMR","ReliefF"]
-# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa"]
-# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa"]
-# FS_ALGO_LIST= ["New_dssa","dssa"]
-# FS_ALGO_LIST= ["dssa"]
+FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
 
-# K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
-K_OPTIONS= [50,100]
+# FS_ALGO_LIST= ["ReliefF"]
+
+K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
+# K_OPTIONS= [50,100]
 
 
 
@@ -108,17 +103,19 @@ def calculate_per_FS_algo(fs_algo,X=[],y=[]):
     best_feature,fs_time = feature_selection(fs_algo,X, y)
     res['fs_time']= fs_time
     
-    if fs_algo=="ReliefF":
-        if best_feature.pvalues_==None:
-            empty_feature=True
-            best_feature=[]
-            best_feature_index=[] 
-    if not empty_feature:
+    ranking=False
+    if fs_algo=="SVM":
+        ranking=True
+        best_feature= best_feature.ranking_
+
+    elif fs_algo=="ReliefF":
+        best_feature= best_feature
+
+    elif  fs_algo!="SVM" and not empty_feature:
         best_feature=best_feature.scores_
-        best_feature_index=np.argsort(best_feature)[::-1]
     
     with ThreadPool(processes=len(K_OPTIONS)) as pool:
-        temp= pool.map(partial(k_level,X=X,y=y,best_feature=best_feature, best_feature_index=best_feature_index)
+        temp= pool.map(partial(k_level,X=X,y=y,best_feature=best_feature,ranking=ranking)
                                   ,K_OPTIONS)
     res= {k: v for d in temp for k, v in d.items()}
     res['fs_algo']= fs_time
@@ -128,7 +125,7 @@ def calculate_per_FS_algo(fs_algo,X=[],y=[]):
 
     
     #k level
-def k_level(k,X,y,best_feature=[], best_feature_index=[]):
+def k_level(k,X,y,best_feature=[],ranking=False):
     print("k level:",k)
     res={}
     empty_feature= best_feature== []
@@ -145,11 +142,13 @@ def k_level(k,X,y,best_feature=[], best_feature_index=[]):
 
         return {k:res}
 
-
-    k_best= best_feature_index[:k]
-    X_k_best= X[:,k_best]
-    res['chosen_features']= k_best
-    res['feature_rank']=best_feature[k_best]
+    if ranking:
+        k_best_index= best_feature[:k]
+    else:
+        k_best_index=np.argpartition(best_feature, -k)[-k:]
+    X_k_best= X[:,k_best_index]
+    res['chosen_features']= k_best_index
+    res['feature_rank']=best_feature[k_best_index]
         
     fold_func= get_fold(X_k_best)
     #fold level 
@@ -208,7 +207,7 @@ def evalute(y_true,y_pred, y_prob, loo=False):
 
     else:
         np.argmax(y_prob, 0)
-        bin_y= label_binarize(y_pred, classes=range(y_prob.shape[1]))
+        bin_y= label_binarize(y_true, classes=range(y_prob.shape[1]))
         pr_auc= average_precision_score(bin_y, y_prob, average="micro")
         auc_Score= roc_auc_score(bin_y, y_prob, average='micro')
         
@@ -229,7 +228,10 @@ def feature_selection(fs_algo,X_train, y_train):
         return SelectKBest(score_func=MRMR.mrmr,k=100).fit(X_train, y_train),timer()-start
 
     elif fs_algo=="ReliefF":
-        return SelectKBest(score_func=ReliefF.ReliefF,k=100).fit(X_train, y_train),timer()-start
+        temp=reliefF.reliefF(X_train, y_train,mode="raw",n_features_to_keep=100)
+        time= timer()-start
+        return temp,time
+        # return SelectKBest(score_func=ReliefF.ReliefF,k=100).fit(X_train, y_train),timer()-start
     
     elif fs_algo=="SVM":
         return RFE(SVC(kernel='linear'),n_features_to_select=100,step=1).fit(X_train, y_train),timer()-start
@@ -237,8 +239,6 @@ def feature_selection(fs_algo,X_train, y_train):
     elif fs_algo=="Genetic":
             fs_function= Genetic_FA()
             return  SelectKBest(fs_function.fit,k=100).fit(X_train,y_train),timer()-start
-
-
     elif fs_algo=="dssa":
             # fs_function= dssa()
             return  SelectKBest(dssa.fit,k=100).fit(X_train,y_train),timer()-start

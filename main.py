@@ -1,3 +1,4 @@
+from time import sleep
 import numpy as np
 import pandas as pd
 import comparison
@@ -37,8 +38,7 @@ if __name__ == "__main__":
     try:
         task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
     except KeyError:
-        task_n=5
-
+        task_n=4
     files= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))]
     # files.sort()
     file_name=files[task_n]

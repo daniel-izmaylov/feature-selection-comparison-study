@@ -73,14 +73,8 @@ class NoDaemonProcess(Process):
 class MyPool(PoolParent):
     Process = NoDaemonProcess
     
-# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
-# FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","SVM"]
-FS_ALGO_LIST=["Genetic"]
-# FS_ALGO_LIST= ["ReliefF"]
-
+FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
 K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
-# K_OPTIONS= [50,100]
-
 
 
 def run_grid_search(db):
@@ -197,9 +191,10 @@ def k_level(k,X,y,best_feature=[],ranking=False):
 
 def evalute(y_true,y_pred, y_prob, loo=False):
     if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:
-        # if loo:
-
-        y_prob=y_prob[:,0]
+        if y_prob.shape[1] ==2:
+            y_prob= y_prob[:,1]
+        else:
+            y_prob= y_prob[:,0]
         pr_auc= average_precision_score(y_true, y_prob)
         # auc= roc_auc_score(y_true, y_prob)
         fpr, tpr, thresholds = roc_curve(y_true,y_prob)

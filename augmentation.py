@@ -184,7 +184,7 @@ if __name__ == "__main__":
     try:
         task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
     except KeyError:
-        task_n=11
+        task_n=4
     freeze_seed(55)
 
     files= [f for f in listdir("results") if isfile(join("results", f))]

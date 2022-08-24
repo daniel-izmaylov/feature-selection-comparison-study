@@ -1634,6 +1634,14 @@
         "documentation": {}
     },
     {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "Genetic_FA",
         "importPath": "feature_algo.Genetic_FA",
         "description": "feature_algo.Genetic_FA",
@@ -2146,7 +2154,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"SVM\"]",
+        "peekOfCode": "class NoDaemonProcess(Process):\n    def _get_daemon(self):\n        return False\n    def _set_daemon(self, value):\n        pass\n    daemon = property(_get_daemon, _set_daemon)\nclass MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]",
         "detail": "comparison",
         "documentation": {}
     },
@@ -2155,7 +2163,7 @@
         "kind": 6,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\n# FS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"SVM\"]\nFS_ALGO_LIST=[\"Genetic\"]\n# FS_ALGO_LIST= [\"ReliefF\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\n# K_OPTIONS= [50,100]\ndef run_grid_search(db):\n    X= db[:,:-1]",
+        "peekOfCode": "class MyPool(PoolParent):\n    Process = NoDaemonProcess\nFS_ALGO_LIST= [\"dssa\",\"f_classif\",\"MRMR\",\"ReliefF\",\"New_dssa\",\"Genetic\",\"SVM\"]\nK_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]\ndef run_grid_search(db):\n    X= db[:,:-1]\n    y= db[:,-1]\n    with MyPool(processes=len(FS_ALGO_LIST)) as pool:\n        results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)\n                                  ,FS_ALGO_LIST)",
         "detail": "comparison",
         "documentation": {}
     },
@@ -2200,7 +2208,7 @@
         "kind": 2,
         "importPath": "comparison",
         "description": "comparison",
-        "peekOfCode": "def evalute(y_true,y_pred, y_prob, loo=False):\n    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:\n        # if loo:\n        y_prob=y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        # auc= roc_auc_score(y_true, y_prob)\n        fpr, tpr, thresholds = roc_curve(y_true,y_prob)\n        auc_Score = auc(fpr, tpr)\n    else:\n        np.argmax(y_prob, 0)",
+        "peekOfCode": "def evalute(y_true,y_pred, y_prob, loo=False):\n    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:\n        if y_prob.shape[1] ==2:\n            y_prob= y_prob[:,1]\n        else:\n            y_prob= y_prob[:,0]\n        pr_auc= average_precision_score(y_true, y_prob)\n        # auc= roc_auc_score(y_true, y_prob)\n        fpr, tpr, thresholds = roc_curve(y_true,y_prob)\n        auc_Score = auc(fpr, tpr)",
         "detail": "comparison",
         "documentation": {}
     },

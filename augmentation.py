@@ -39,29 +39,15 @@ CLASSIFIERS = {'LogisticRegression': LogisticRegression(),
             'KNeighborsClassifier': KNeighborsClassifier(),
             'GaussianNB': GaussianNB(),
             'SVC': SVC(probability=True)}
-# FS_ALGORITHMS = {'dssa': SelectKBest(dssa.fit,k=100), 'New_dssa': SelectKBest(New_dssa.fit,k=100), 'f_classif': SelectFdr(score_func=f_classif,alpha=0.1),
-#                  'MRMR': SelectKBest(score_func=MRMR.mrmr,k=100), 'ReliefF': SelectKBest(score_func=ReliefF.ReliefF,k=100),
-#                  'SVM': RFE(SVC(kernel='linear'),n_features_to_select=100,step=1)}
+
 
 def get_best_config(file_name):
+    """
+    Get the best configuration for the given database and perform the augmentation
+    """
     head = ['index', 'value', 'infrence_time', 'Learning algorithm', 'Number of features selected (K)', 'chosen_features', 'Selected Features scores',
             'Filtering Algorithm', 'Fold', 'fs_time', 'Dataset Name', 'Number of samples', 'Original Number of features', 'CV Method']
-
-    # with open("augmentation_t.csv", "a", newline="") as fn:
-    #     write = csv.writer(fn)
-    #     write.writerow(head)
-
-    # path = 'results/'
-    # all_files = []
-    # for file in os.listdir(path):
-    #     if os.path.isfile(os.path.join(path, file)):
-    #         all_files.append(os.path.join(path, file))
-
-    # for i,name in enumerate(all_files):
-
     print("Processing file: " + " " + file_name)
-    # db=pd.read_csv("after_preprocess/"+file_name+".csv",header=0)
-
     df = pd.read_csv("results/"+file_name, header=0)
     best_results = return_best_config(df)
     feature_num = best_results['Number of features selected (K)']
@@ -69,12 +55,20 @@ def get_best_config(file_name):
     fs_algorithm = best_results['Filtering Algorithm']
     evaluate_augmentation(file_name, feature_num, classifier, fs_algorithm)
 
+
 def return_best_config(df):
+    """
+    Get the best configuration for the given database 
+    """
     t = df[df["index"]=="AUC"].groupby(["Filtering Algorithm","Number of features selected (K)","Learning algorithm"]).mean().reset_index()
     t = t.sort_values(by=["value"],ascending=False).iloc[0]
     return t
 
+
 def evaluate_augmentation(file_name, feature_num, classifier, fs_algorithm):
+    """
+    preform the augmentation and evaluate the results
+    """
     db_name = file_name.split(".")[0].replace("_results", "")
     df = pd.read_csv("after_preprocess/" + db_name + ".csv", header=0)
 
@@ -123,14 +117,21 @@ def evaluate_augmentation(file_name, feature_num, classifier, fs_algorithm):
 
     return
 
+
 def run_cls(classifier, xtrain, ytrain, xtest, ytest):
+    """
+    Run the classifier and return the results"""
     start = timer()
     cf = CLASSIFIERS[classifier].fit(xtrain, ytrain)
     ypred = cf.predict_proba(xtest)
     cls_time = timer() - start
     return ypred, cls_time
 
+
 def prep_results(res, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method,db_name):
+    """
+    Prepare the results for the csv file
+    """
     rows = []
     for key, value in res.items():
         rows.append([key, value, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time, df_name, size, all_features, cv_method])
@@ -140,29 +141,31 @@ def prep_results(res, cls_time, cls, k, chosen, chosen_scores, fs, fold, fs_time
         write.writerows(rows)
 
 
-
 def create_pca(feature_num, fs_algorithm, xtrain, xtest, ytrain, ytest):
+    """
+    Create the PCA features and return them
+    """
     start = timer()
     selected,time = feature_selection(fs_algorithm,xtrain.values, ytrain.values)
     total = timer() - start
     if fs_algorithm=="ReliefF":
         k_best_index = np.argpartition(selected, -feature_num)[-feature_num:]
-        k_best_scores=selected
+        k_best_scores=selected[k_best_index]
 
     elif fs_algorithm=="SVD" or fs_algorithm=="RFE" or fs_algorithm=="SVC":
         k_best_index=selected[-feature_num:]
         k_best_scores=selected[-feature_num:]
     else:
         k_best_index = np.argpartition(selected.scores_, -feature_num)[-feature_num:]
-        k_best_scores=selected.scores_
+        k_best_scores=selected.scores_[k_best_index]
     # k_best_index = np.argpartition(selected.scores_, -feature_num)[-feature_num:]
     xtrain = xtrain.iloc[:, k_best_index].reset_index(drop=True)
     xtest = xtest.iloc[:, k_best_index].reset_index(drop=True)
 
-    linear_pca = KernelPCA(kernel='linear')
+    linear_pca = KernelPCA(kernel='linear',n_components=5)
     linear_pca_features = linear_pca.fit_transform(xtrain, ytrain)
     linear_pca_features_test = linear_pca.transform(xtest)
-    rbf_pca = KernelPCA(kernel='rbf')
+    rbf_pca = KernelPCA(kernel='rbf',n_components=5)
     rbf_pca_features = rbf_pca.fit_transform(xtrain, ytrain)
     rbf_pca_features_test = rbf_pca.transform(xtest)
 
@@ -171,20 +174,21 @@ def create_pca(feature_num, fs_algorithm, xtrain, xtest, ytrain, ytest):
     xtest = xtest.join(pd.DataFrame(linear_pca_features_test), rsuffix="linear")
     xtest = xtest.join(pd.DataFrame(rbf_pca_features_test), rsuffix="_rbf")
 
+
     return xtrain, xtest, ytrain, ytest, k_best_scores, k_best_index, total
 
 def make_augmentation(xtrain, ytrain):
-    rm = RandomOverSampler(random_state=42)
+    """
+    perform Smote augmentations on the data"""
     sm = over_sampling.SMOTE(k_neighbors=2,random_state=101)
-    X_res, Y_res= rm.fit_resample(xtrain.values, ytrain)
-    X_res, Y_res = sm.fit_resample(X_res, Y_res)
+    X_res, Y_res = sm.fit_resample(xtrain, ytrain)
     return  X_res, Y_res
 
 if __name__ == "__main__":
     try:
         task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
     except KeyError:
-        task_n=4
+        task_n=6
     freeze_seed(55)
 
     files= [f for f in listdir("results") if isfile(join("results", f))]

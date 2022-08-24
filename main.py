@@ -7,7 +7,8 @@ import random
 #freeze all seeds for reproducibility
 import os
 
-from utlis import turn_resDict_to_df 
+from utlis.utlis import turn_resDict_to_df 
+
 def freeze_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -40,9 +41,7 @@ if __name__ == "__main__":
     except KeyError:
         task_n=4
     files= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))]
-    # files.sort()
     file_name=files[task_n]
-    # file_name="bioconductor_breastCancerVDX"
     print(file_name.split(".")[0])
 
     main(file_name.split(".")[0])

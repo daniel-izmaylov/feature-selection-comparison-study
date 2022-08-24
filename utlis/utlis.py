@@ -1,4 +1,6 @@
 import pandas as pd 
+from multiprocessing.pool import Pool as PoolParent
+from multiprocessing import Process, Pool
 
 def get_fold(x):
     if x<50:
@@ -13,19 +15,13 @@ def get_fold(x):
 def turn_resDict_to_df(results,columns):
     all_df=[]
     for algo_name,fs_algo_lst in list(results.items())[:-3]:
-        # database_name= results
         for k, k_res in list(fs_algo_lst.items())[:-1]:
             fs_time= fs_algo_lst["fs_algo"]
-            # print(fold, fold_res)
             chosen_features= k_res["chosen_features"]
             feature_rank= k_res["feature_rank"]
-            # print(fold)
-            # print(fold_res.keys())
             for clf_name,clf_res in list(k_res.items())[2:]:
                 for fold_name, fold_res in clf_res.items():
-                    # print(fold_res)
                     infrence_time=fold_res["infrence_time"]
-                    # del fold_res["infrence_time"]
                     temp_d=pd.DataFrame.from_dict(fold_res, orient='index')
                     temp_d.reset_index(inplace=True)
                     temp_d=temp_d.melt(id_vars='index')
@@ -48,3 +44,12 @@ def turn_resDict_to_df(results,columns):
     return all_df
 
 
+class NoDaemonProcess(Process):
+    def _get_daemon(self):
+        return False
+    def _set_daemon(self, value):
+        pass
+    daemon = property(_get_daemon, _set_daemon)
+
+class MyPool(PoolParent):
+    Process = NoDaemonProcess

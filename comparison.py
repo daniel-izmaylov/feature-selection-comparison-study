@@ -1,6 +1,3 @@
-from multiprocessing.dummy import Pool
-from sklearn.base import BaseEstimator, TransformerMixin 
-from sklearn.metrics import make_scorer
 from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import accuracy_score
@@ -8,7 +5,6 @@ from sklearn.metrics import average_precision_score
 from sklearn.feature_selection import SelectKBest
 from sklearn.model_selection import KFold
 from sklearn.base import BaseEstimator, TransformerMixin 
-# import  sklearn.metrics._scorer:
 from sklearn.metrics import make_scorer
 from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import roc_auc_score
@@ -17,29 +13,16 @@ from sklearn.metrics import average_precision_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_selection import SelectKBest, mutual_info_classif
-from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
-from sklearn.decomposition import PCA
-from sklearn.model_selection import GridSearchCV
-#import logistic_regression 
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.feature_selection import SelectFdr
-from tempfile import mkdtemp
-from joblib import Memory
-from shutil import rmtree
-import itertools
 from sklearn.feature_selection import SelectFdr, chi2, f_classif
 from sklearn.metrics import precision_recall_curve
 import numpy as np 
-import scipy.io
-import reliefF
+import feature_algo.reliefF as reliefF
 from skfeature.function.information_theoretical_based import MRMR
-from tqdm import tqdm
 from multiprocessing.pool import Pool as PoolParent
-from multiprocessing import Process, Pool
-import time
 from sklearn.svm import SVC
 from functools import partial
 from sklearn.model_selection import LeavePOut
@@ -55,6 +38,7 @@ import pickle
 from timeit import default_timer as timer
 from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_curve, auc
+from utlis.utlis import MyPool
 
 def get_clf_dict():
     return {'LogisticRegression': LogisticRegression(),
@@ -63,34 +47,33 @@ def get_clf_dict():
             'GaussianNB': GaussianNB(),
             'SVC': SVC(probability=True)}
  
-class NoDaemonProcess(Process):
-    def _get_daemon(self):
-        return False
-    def _set_daemon(self, value):
-        pass
-    daemon = property(_get_daemon, _set_daemon)
 
-class MyPool(PoolParent):
-    Process = NoDaemonProcess
     
 FS_ALGO_LIST= ["dssa","f_classif","MRMR","ReliefF","New_dssa","Genetic","SVM"]
 K_OPTIONS= [1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 50, 100]
 
 
+
+
 def run_grid_search(db):
+    """
+    run grid search on the all the configurations and return the best classifier
+    """
     X= db[:,:-1]
     y= db[:,-1]
-
+    # septate each feature selection algorithm into a separate process 
     with MyPool(processes=len(FS_ALGO_LIST)) as pool:
         results= pool.map(partial(calculate_per_FS_algo,X=X,y=y)
                                   ,FS_ALGO_LIST)
-
     results= {k: v for d in results for k, v in d.items()}
     return results    
 
 
 
 def calculate_per_FS_algo(fs_algo,X=[],y=[]):
+    """
+    calculate the performance of each feature selection algorithm
+    """
     print("Calculating for {}".format(fs_algo))
     res={}
     clf_list= get_clf_dict().items()
@@ -109,7 +92,8 @@ def calculate_per_FS_algo(fs_algo,X=[],y=[]):
     elif  fs_algo!="SVM" and not empty_feature:
         best_feature=best_feature.scores_
     
-    with ThreadPool(processes=len(K_OPTIONS)) as pool:
+    #each K value run on a separate thread
+    with ThreadPool(processes=len(K_OPTIONS)) as pool: 
         temp= pool.map(partial(k_level,X=X,y=y,best_feature=best_feature,ranking=ranking)
                                   ,K_OPTIONS)
     res= {k: v for d in temp for k, v in d.items()}
@@ -119,40 +103,32 @@ def calculate_per_FS_algo(fs_algo,X=[],y=[]):
 
 
     
-    #k level
 def k_level(k,X,y,best_feature=[],ranking=False):
+    """
+    calculate the performance of each feature selection algorithm for a given k value
+    """
     print("k level:",k)
     res={}
     empty_feature= best_feature== []
     clf_list= get_clf_dict().items()
 
-    if empty_feature:
-        res['chosen_features']= []
-        res['feature_rank']= []
-        for clf_name, clf in clf_list:
-            res[clf_name]={}
-            res[clf_name][0]={}
-            res[clf_name][0]= {'accuracy':0,"MCC":0,"AUC":0,"PR-AUC":0}
-            res[clf_name][0]["infrence_time"]=0
-
-        return {k:res}
-
     if ranking:
         k_best_index= best_feature[:k]
     else:
         k_best_index=np.argpartition(best_feature, -k)[-k:]
+
+
     X_k_best= X[:,k_best_index]
     res['chosen_features']= k_best_index
     res['feature_rank']=best_feature[k_best_index]
         
     fold_func= get_fold(X_k_best)
-    #fold level 
 
-        # res[i]={}
-    for clf_name, clf in clf_list:
+
+    for clf_name, clf in clf_list: # for each classifier calculate the performance on each fold
         res[clf_name]={}
 
-        if len(X)<=100: #leave one out
+        if len(X)<=100: #calculation for leave one out 
             y_test = []
             y_prob=[]
             y_pred=[]
@@ -190,18 +166,19 @@ def k_level(k,X,y,best_feature=[],ranking=False):
 
 
 def evalute(y_true,y_pred, y_prob, loo=False):
-    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1:
+    """
+    evaluate the performance of the classifier results
+    """
+    if y_prob.shape[1] ==2 or  y_prob.shape[1] ==1: #binary classification
         if y_prob.shape[1] ==2:
             y_prob= y_prob[:,1]
         else:
             y_prob= y_prob[:,0]
         pr_auc= average_precision_score(y_true, y_prob)
-        # auc= roc_auc_score(y_true, y_prob)
         fpr, tpr, thresholds = roc_curve(y_true,y_prob)
         auc_Score = auc(fpr, tpr)
 
-
-    else:
+    else: #multiclass classification
         np.argmax(y_prob, 0)
         bin_y= label_binarize(y_true, classes=range(y_prob.shape[1]))
         pr_auc= average_precision_score(bin_y, y_prob, average="micro")
@@ -215,6 +192,9 @@ def evalute(y_true,y_pred, y_prob, loo=False):
 
 
 def feature_selection(fs_algo,X_train, y_train):
+    """
+    preform feature selection algorithm on the training set and return the  feature score
+    """
     start = timer()
     
     if  fs_algo=="f_classif":
@@ -240,11 +220,13 @@ def feature_selection(fs_algo,X_train, y_train):
             return  SelectKBest(dssa.fit,k=100).fit(X_train,y_train),timer()-start
 
     elif fs_algo=="New_dssa":
-        # fs_function= dssa()
         return  SelectKBest(New_dssa.fit,k=100).fit(X_train,y_train),timer()-start    
     
     
 def get_fold(x):
+    """
+    return a fold function for cross validation defendant on the number of samples in the dataset
+    """
     if len(x)<50:
         fold_func = LeavePOut(2)
     elif len(x)<=100:
@@ -258,7 +240,6 @@ def get_fold(x):
 
 
 def clf_res(res,clf):
-    # res= k_value_dict[k][clf]
     clf_df= pd.DataFrame.from_dict(res)
     clf_df.index = clf_df.index.set_names(['metric'])
     clf_df.reset_index(inplace=True)

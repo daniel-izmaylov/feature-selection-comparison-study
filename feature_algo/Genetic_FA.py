@@ -30,63 +30,8 @@ import faiss
 from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 
-# class FaissKNeighbors:
-#     def __init__(self, k=5):
-#         self.index = None
-#         self.y = None
-#         self.k = k
-
-#     def fit(self, X, y):
-#         self.index = faiss.IndexFlatL2(X.shape[1])
-#         self.index.add(X.astype(np.float32))
-#         self.y = y
-
-#     def predict(self, X):
-#         distances, indices = self.index.search(X.astype(np.float32), k=self.k)
-#         votes = self.y[indices]
-#         predictions = np.array([np.argmax(np.bincount(x)) for x in votes])
 
 
-
-
-import multiprocessing
-
-    
-def main():
-    n_features = 500
-    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)
-    r=ga.fit() 
-    # mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')
-    # X=mat['X']
-    # y = mat['Y'][:, 0] 
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)
-    # k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)
-    # X_train_kbest = k_best.transform(X_train)
-    # X_test_kbest = k_best.transform(X_test)
-    
-
-    # X_train_kbest_valid, X_valid_kbest_valid, y_train_valid, y_valid_valid = train_test_split(X_train_kbest, y_train,  test_size=0.3, stratify=y_train, random_state=40)
-    # scalar = StandardScaler()
-    # X_train_kbest=scalar.fit_transform(X_train_kbest_valid)
-    # X_valid_kbest_valid=scalar.transform(X_valid_kbest_valid)
-    # # clf= RandomForestClassifier()
-    # clf= KNeighborsClassifier(n_neighbors=3)
-    # clf.fit(X_train_kbest,y_train_valid)
-    # y_pred= clf.predict(X_valid_kbest_valid)
-    # print(classification_report(y_valid_valid, y_pred))
-
-
-
-    # r=list(r)
-    #train random forest with selected features
-    # clf=RandomForestClassifier(n_estimators=100,max_depth=10,random_state=0)
-
-    # clf.fit(X_train_kbest[:, r],y_train)
-
-    # y_pred= clf.predict(X_test_kbest[:, r])
-    # print(classification_report(y_test, y_pred))
-    
-    
     
 
 def contingency_table(a,b,total):
@@ -121,7 +66,7 @@ class Genetic_FA():
         r=[]
         # r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
         # r = process_map(self.genetic_algorithm, range(0, 20), max_workers=20)
-        for i in range (0,10):
+        for i in range (0,3):
             r.append(self.genetic_algorithm(i))
 
         #defult dict with set
@@ -286,23 +231,15 @@ class Genetic_FA():
 from numpy import genfromtxt
 
 if __name__ == "__main__":
-    # mat =scipy.io.loadmat("Data/scikit_arcene.mat")
-    # mat =scipy.io.loadmat("Data/scikit_arcene.mat")
+
     my_data = genfromtxt('Data/SPECTF (1).train', delimiter=',')
     X=my_data[:,1:]
     y=my_data[:,0]
-    # nump
-    # X=mat['X']
-    # y = mat['Y'][:, 0]
+
     fs_function= Genetic_FA()
-    # fs_function.fit(X,y)
     t= SelectKBest(fs_function.fit,k=2).fit(X,y)
     print(t)
-    # attach y to the end of X
     best_feature=t.scores_
     best_feature_index=np.argsort(best_feature)[::-1]
-    
-    
-    # db= np.concatenate((X,y.reshape(-1,1)),axis=1)
-    # run_grid_seach(db)
+
 

@@ -36,10 +36,7 @@ from os.path import isfile, join
 
 
 if __name__ == "__main__":
-    try:
-        task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
-    except KeyError:
-        task_n=4
+    task_n= int(os.environ['SLURM_ARRAY_TASK_ID'])
     files= [f for f in listdir("after_preprocess") if isfile(join("after_preprocess", f))]
     file_name=files[task_n]
     print(file_name.split(".")[0])

@@ -485,15 +485,6 @@
         "documentation": {}
     },
     {
-        "label": "multiprocessing",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "multiprocessing",
-        "description": "multiprocessing",
-        "detail": "multiprocessing",
-        "documentation": {}
-    },
-    {
         "label": "Pool",
         "importPath": "multiprocessing",
         "description": "multiprocessing",
@@ -1089,15 +1080,6 @@
         "documentation": {}
     },
     {
-        "label": "main",
-        "kind": 2,
-        "importPath": "feature_algo.Genetic_FA",
-        "description": "feature_algo.Genetic_FA",
-        "peekOfCode": "def main():\n    n_features = 500\n    ga=Genetic_FA(X_train_kbest,X_valid_kbest_valid,y_train_valid, y_valid_valid,n_features)\n    r=ga.fit() \n    # mat =scipy.io.loadmat('scikit-Dataset/TOX-171.mat')\n    # X=mat['X']\n    # y = mat['Y'][:, 0] \n    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y,  random_state=40)\n    # k_best = SelectKBest(f_classif, k=500).fit(X_train, y_train)\n    # X_train_kbest = k_best.transform(X_train)",
-        "detail": "feature_algo.Genetic_FA",
-        "documentation": {}
-    },
-    {
         "label": "contingency_table",
         "kind": 2,
         "importPath": "feature_algo.Genetic_FA",
@@ -1462,7 +1444,7 @@
         "kind": 6,
         "importPath": "data_preprocessing",
         "description": "data_preprocessing",
-        "peekOfCode": "class variance(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        scaler = StandardScaler()\n        X = scaler.fit_transform(X)\n        #selector = VarianceThreshold()\n        #X = selector.fit_transform(X)\n        pt = PowerTransformer()\n        X = pt.fit_transform(X)\n        return X\n    def transform(self, X):",
+        "peekOfCode": "class variance(BaseEstimator, TransformerMixin):\n    def fit(self, X, y=None):\n        scaler = StandardScaler()\n        X = scaler.fit_transform(X)\n        pt = PowerTransformer()\n        X = pt.fit_transform(X)\n        return X\n    def transform(self, X):\n        return self.X\n    def fit_transform(self, X, y=None):",
         "detail": "data_preprocessing",
         "documentation": {}
     },

@@ -33,9 +33,6 @@ class variance(BaseEstimator, TransformerMixin):
         scaler = StandardScaler()
         X = scaler.fit_transform(X)
 
-        #selector = VarianceThreshold()
-        #X = selector.fit_transform(X)
-
         pt = PowerTransformer()
         X = pt.fit_transform(X)
         return X

@@ -1,7 +1,3 @@
-# ML Assignment 4
-Daniel Izmaylov - 205587660  
-Lielle Todder - 311508568
-
 ## Running Process:
 1. All datasets should be in the `Data` folder.
 2. Run `data_preprocessing.py` . The file automatically reads all datasets from `Data`, 
